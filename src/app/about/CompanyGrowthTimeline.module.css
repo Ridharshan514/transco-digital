@@ -1,0 +1,458 @@
+/* ═════════════════════════════════════════════════════════════════
+   YEAR-BY-YEAR COMPANY GROWTH TIMELINE (SEED → FLOWERING TREE)
+   ═════════════════════════════════════════════════════════════════ */
+
+.timelineSection {
+  position: relative;
+  padding: 120px 0;
+  background: #fafafa;
+  border-top: 1px solid #e4e4e7;
+  border-bottom: 1px solid #e4e4e7;
+  overflow: hidden;
+}
+
+/* ── Section Header ──────────────────────────────────────────── */
+.sectionHeader {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.headerBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: #ffffff;
+  border: 1px solid #e4e4e7;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ff6a00;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.sectionTitle {
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.lightText {
+  font-weight: 300;
+  color: #71717a;
+}
+
+.boldText {
+  font-weight: 800;
+  color: #18181b;
+}
+
+.sectionSubtitle {
+  font-size: 15.5px;
+  color: #71717a;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Two-Column Layout (Sticky Tree + Vertical Milestones) ───── */
+.timelineLayout {
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  gap: 56px;
+  align-items: flex-start;
+  position: relative;
+}
+
+/* ── Left Column: Sticky Tree Card ───────────────────────────── */
+.treeStickyCol {
+  position: sticky;
+  top: 120px;
+  z-index: 10;
+}
+
+.treeCard {
+  background: #09090d;
+  border-radius: 32px;
+  padding: 30px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 106, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.treeCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.growthBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.growthDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.growthPhase {
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.yearPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  background: #ffffff;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #18181b;
+}
+
+.svgContainer {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.treeSvg {
+  width: 100%;
+  height: 100%;
+  max-height: 380px;
+}
+
+/* Progress bar */
+.treeProgressArea {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.progressBarTrack {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.4s ease, background 0.4s ease;
+}
+
+.progressFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.progressPercent {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.progressStatus {
+  color: #ff6a00;
+}
+
+/* ── Right Column: Vertical Timeline Milestones ──────────────── */
+.milestonesCol {
+  position: relative;
+  padding-left: 36px;
+}
+
+/* Continuous Vertical Glowing Stem Line */
+.verticalStemLine {
+  position: absolute;
+  top: 36px;
+  bottom: 40px;
+  left: 0;
+  width: 3px;
+  background: #e4e4e7;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.verticalStemFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(180deg, #ff6a00 0%, #ff8533 50%, #10b981 100%);
+  border-radius: 9999px;
+  box-shadow: 0 0 10px rgba(255, 106, 0, 0.6);
+}
+
+.milestoneCardsList {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.milestoneCard {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Node circle connected to vertical line */
+.milestoneNode {
+  position: absolute;
+  top: 24px;
+  left: -53px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2.5px solid #e4e4e7;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.nodeActive {
+  transform: scale(1.18);
+  box-shadow: 0 0 16px rgba(255, 106, 0, 0.5);
+}
+
+.nodeIcon {
+  font-size: 15px;
+  line-height: 1;
+}
+
+/* Card Content Box */
+.cardBox {
+  background: #ffffff;
+  border: 1px solid #e4e4e7;
+  border-radius: 24px;
+  padding: 32px 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.milestoneActive .cardBox {
+  border-color: #18181b;
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.cardTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.yearBadgeWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cardYear {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #18181b;
+}
+
+.cardPhase {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.metricPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: #fafafa;
+  border: 1px solid #e4e4e7;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #18181b;
+}
+
+.cardTitle {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #18181b;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.cardTagline {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #71717a;
+  margin: -6px 0 0;
+}
+
+.cardDescription {
+  font-size: 14.5px;
+  color: #3f3f46;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.achievementsWrap {
+  padding-top: 10px;
+  border-top: 1px solid #f4f4f5;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.achievementsTitle {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #a1a1aa;
+  margin: 0;
+}
+
+.achievementsList {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.achievementItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #18181b;
+  line-height: 1.4;
+}
+
+.checkIcon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid #f4f4f5;
+  margin-top: 4px;
+}
+
+.locationTag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #71717a;
+}
+
+.stageTag {
+  font-size: 11px;
+  font-weight: 600;
+  color: #a1a1aa;
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .timelineLayout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .treeStickyCol {
+    position: relative;
+    top: 0;
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .milestonesCol {
+    padding-left: 44px;
+  }
+
+  .milestoneNode {
+    left: -53px;
+  }
+}
+
+@media (max-width: 640px) {
+  .timelineSection {
+    padding: 80px 0;
+  }
+
+  .milestonesCol {
+    padding-left: 28px;
+  }
+
+  .milestoneNode {
+    left: -37px;
+    width: 28px;
+    height: 28px;
+    top: 18px;
+  }
+
+  .nodeIcon {
+    font-size: 12px;
+  }
+
+  .cardBox {
+    padding: 24px 20px;
+  }
+
+  .cardYear {
+    font-size: 20px;
+  }
+
+  .cardTitle {
+    font-size: 17px;
+  }
+}

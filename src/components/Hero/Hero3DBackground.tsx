@@ -5,48 +5,62 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 
-function PixelEarth() {
+function GlobeModel() {
   const groupRef = useRef<THREE.Group>(null);
-  const { scene } = useGLTF('/pixel_earth.glb');
+  const { scene } = useGLTF('/globe.glb');
 
-  // Auto-centre: compute bounding box and shift model to world origin,
-  // then nudge it right so it fills the right portion of the canvas
+  // Auto-normalize size and center directly inside the black box container
   useEffect(() => {
     if (!groupRef.current) return;
+    
+    // Reset scale & position before measuring
+    groupRef.current.scale.set(1, 1, 1);
+    groupRef.current.position.set(0, 0, 0);
+
     const box = new THREE.Box3().setFromObject(groupRef.current);
+    const size = new THREE.Vector3();
+    box.getSize(size);
+    const maxDim = Math.max(size.x, size.y, size.z);
+
+    const targetDiameter = 3.6;
+    const scaleFactor = targetDiameter / (maxDim || 1);
+    groupRef.current.scale.set(scaleFactor, scaleFactor, scaleFactor);
+
+    // Re-center perfectly inside box
+    const scaledBox = new THREE.Box3().setFromObject(groupRef.current);
     const centre = new THREE.Vector3();
-    box.getCenter(centre);
-    // Centre first, then offset right so globe sits towards the right edge
-    groupRef.current.position.set(-centre.x + 1.1, -centre.y, -centre.z);
+    scaledBox.getCenter(centre);
+    groupRef.current.position.set(-centre.x, -centre.y, -centre.z);
   }, [scene]);
 
   useFrame((_, delta) => {
     if (groupRef.current) {
-      groupRef.current.rotation.y += delta * 0.28;
+      groupRef.current.rotation.y += delta * 0.25;
     }
   });
 
   return (
     <group ref={groupRef}>
-      <primitive object={scene} scale={1.35} />
+      <primitive object={scene} />
     </group>
   );
 }
 
-useGLTF.preload('/pixel_earth.glb');
+useGLTF.preload('/globe.glb');
 
 export default function Hero3DBackground() {
   return (
     <Canvas
-      style={{ background: 'transparent' }}
+      style={{ width: '100%', height: '100%', background: 'transparent' }}
       gl={{ alpha: true, antialias: true }}
-      camera={{ position: [0, 0, 6.5], fov: 44, near: 0.1, far: 100 }}
+      camera={{ position: [0, 0, 6.0], fov: 42, near: 0.1, far: 100 }}
     >
-      {/* Bright lighting so low-poly colours are vivid on white */}
-      <ambientLight intensity={3.5} />
-      <directionalLight position={[4, 6, 4]}  intensity={1.2} />
-      <directionalLight position={[-4, -2, 3]} intensity={0.6} />
-      <PixelEarth />
+      {/* Dynamic lighting for high-contrast visibility against black box */}
+      <ambientLight intensity={3.8} />
+      <directionalLight position={[5, 6, 5]} intensity={1.8} />
+      <directionalLight position={[-5, -3, 3]} intensity={0.9} />
+
+      <GlobeModel />
     </Canvas>
   );
 }

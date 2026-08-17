@@ -11,8 +11,7 @@ const Hero3DBackground = dynamic(() => import('./Hero3DBackground'), { ssr: fals
 export default function Hero() {
   return (
     <section className={styles.hero} id="home" aria-label="Transco Digital — Hero">
-
-      {/* LEFT — text content, absolutely placed on left half */}
+      {/* LEFT — text content */}
       <motion.div
         className={styles.leftCol}
         initial={{ opacity: 0, x: -24 }}
@@ -64,16 +63,17 @@ export default function Hero() {
         </div>
       </motion.div>
 
-      {/* RIGHT — globe fills the full right half, nothing clips it */}
+      {/* RIGHT — globe in sleek black box */}
       <motion.div
         className={styles.rightCol}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.3 }}
+        initial={{ opacity: 0, scale: 0.96 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.9, delay: 0.2 }}
       >
-        <Hero3DBackground />
+        <div className={styles.globeBox}>
+          <Hero3DBackground />
+        </div>
       </motion.div>
-
     </section>
   );
 }

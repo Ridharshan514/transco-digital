@@ -1,0 +1,402 @@
+/* ═══════════════════════════════════════════════════════
+   LeadershipSection.module.css
+   Spotlight layout: featured photo left + roster grid right
+   ═══════════════════════════════════════════════════════ */
+
+.section {
+  padding: 90px 0 100px;
+  background: #ffffff;
+}
+
+/* ── Header ──────────────────────────────────────────── */
+.header {
+  max-width: 680px;
+  margin: 0 auto 52px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #FF6A00;
+}
+
+.title {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.lightWord {
+  font-weight: 300;
+  color: #a1a1aa;
+}
+
+.boldWord {
+  font-weight: 800;
+  color: #18181b;
+}
+
+/* ── Main Grid ───────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 24px;
+  align-items: start;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* ── Featured Column ─────────────────────────────────── */
+.featuredCol {
+  position: sticky;
+  top: 80px;
+}
+
+.featuredCard {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #18181b;
+  /* Fixed aspect ratio — portrait */
+  aspect-ratio: 3 / 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* Photo layer */
+.featuredImgWrap {
+  position: absolute;
+  inset: 0;
+}
+
+.featuredImg {
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.6s ease;
+}
+
+.featuredCard:hover .featuredImg {
+  transform: scale(1.04);
+}
+
+/* Dark gradient overlay — bottom 60% */
+.featuredOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(9, 9, 13, 0.96) 0%,
+    rgba(9, 9, 13, 0.65) 45%,
+    rgba(9, 9, 13, 0.1) 75%,
+    transparent 100%
+  );
+}
+
+/* Dept badge — top-left */
+.featuredDeptBadge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  border: 1px solid;
+  backdrop-filter: blur(8px);
+}
+
+/* Bottom text block */
+.featuredInfo {
+  position: relative;
+  z-index: 2;
+  padding: 28px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.featuredName {
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.featuredRole {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.featuredBio {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.62);
+  line-height: 1.65;
+  margin: 6px 0 0;
+  max-width: 400px;
+}
+
+/* Focus tags */
+.focusTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.focusTag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.09);
+  color: rgba(255, 255, 255, 0.65);
+  border-radius: 9999px;
+  letter-spacing: 0.02em;
+}
+
+.connectBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  margin-top: 10px;
+  transition: gap 0.2s ease, opacity 0.2s ease;
+  letter-spacing: 0.01em;
+}
+
+.connectBtn:hover {
+  gap: 8px;
+  opacity: 0.8;
+}
+
+/* ── Roster Column ───────────────────────────────────── */
+.rosterCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.rosterLabel {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #a1a1aa;
+  margin: 0 0 12px;
+}
+
+.rosterList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Individual roster card */
+.rosterCard {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  overflow: hidden;
+}
+
+.rosterCard:hover {
+  background: #f4f4f5;
+}
+
+.rosterCardActive {
+  background: #fafafa;
+  border-color: #e4e4e7;
+}
+
+/* Active animated left border */
+.activeBar {
+  position: absolute;
+  left: 0;
+  top: 12px;
+  bottom: 12px;
+  width: 3px;
+  border-radius: 9999px;
+}
+
+/* Thumbnail photo */
+.rosterThumb {
+  position: relative;
+  width: 56px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #e4e4e7;
+  outline-offset: 2px;
+  transition: outline 0.2s ease;
+}
+
+.rosterThumbImg {
+  object-fit: cover;
+  object-position: center top;
+}
+
+.rosterMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+}
+
+.rosterName {
+  font-size: 15px;
+  font-weight: 700;
+  color: #18181b;
+  letter-spacing: -0.015em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rosterRole {
+  font-size: 12.5px;
+  color: #71717a;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.25s ease;
+}
+
+/* ── CTA Card ────────────────────────────────────────── */
+.ctaCard {
+  margin-top: 20px;
+  padding: 22px 20px;
+  background: #09090d;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ctaCardText {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.ctaCardBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #FF6A00;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: gap 0.2s ease;
+}
+
+.ctaCardBtn:hover {
+  gap: 9px;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 360px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0 70px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .featuredCol {
+    position: static;
+  }
+
+  .featuredCard {
+    aspect-ratio: 3 / 3.5;
+  }
+
+  .rosterList {
+    /* Horizontal scroll on mobile */
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    gap: 8px;
+    scrollbar-width: none;
+  }
+
+  .rosterList::-webkit-scrollbar {
+    display: none;
+  }
+
+  .rosterCard {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 120px;
+    padding: 14px 12px;
+    gap: 8px;
+  }
+
+  .rosterThumb {
+    width: 60px;
+    height: 70px;
+  }
+
+  .rosterName {
+    font-size: 13px;
+    white-space: normal;
+  }
+
+  .rosterRole {
+    font-size: 11px;
+    white-space: normal;
+  }
+
+  .activeBar {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    top: auto;
+    bottom: 0;
+    width: auto;
+    height: 3px;
+  }
+}

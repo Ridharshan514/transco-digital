@@ -1,37 +1,621 @@
+/* ═════════════════════════════════════════════════════════════════════════════
+   contactPage.module.css — Interactive Project Scope Builder & Global Hub
+   ═════════════════════════════════════════════════════════════════════════════ */
+
 .page {
-  padding-top: var(--space-24, 96px);
+  background: #ffffff;
+  color: #18181b;
+  min-height: 100vh;
 }
 
+/* ── 1. Hero Header ────────────────────────────────────────── */
 .heroSection {
-  padding-block: var(--space-12, 48px) var(--space-8, 32px);
+  padding: 130px 0 70px;
+  background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
+  border-bottom: 1px solid #e4e4e7;
+  text-align: center;
 }
 
 .heroBadge {
-  display: inline-block;
-  padding: 5px 12px;
-  background: var(--color-surface, #f4f4f5);
-  border: 1px solid var(--color-border, #e4e4e7);
-  border-radius: var(--radius-pill, 9999px);
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--color-subtle, #a1a1aa);
-  margin-bottom: var(--space-4, 16px);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: rgba(255, 106, 0, 0.08);
+  border: 1px solid rgba(255, 106, 0, 0.25);
+  color: #FF6A00;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
 }
 
 .heroTitle {
-  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-size: clamp(2.4rem, 4.2vw, 3.8rem);
   line-height: 1.1;
-  letter-spacing: -0.03em;
-  max-width: 800px;
+  letter-spacing: -0.04em;
+  max-width: 860px;
+  margin: 0 auto 20px;
+}
+
+.lightWord {
+  font-weight: 300;
+  color: #a1a1aa;
+}
+
+.boldWord {
+  font-weight: 800;
+  color: #18181b;
+}
+
+.heroSub {
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  color: #71717a;
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+/* ── 2. Planner Grid ───────────────────────────────────────── */
+.plannerSection {
+  padding: 70px 0 100px;
+  background: #ffffff;
+}
+
+.plannerGrid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 40px;
+  align-items: start;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.configuratorCol {
+  background: #fafafa;
+  border: 1px solid #e4e4e7;
+  border-radius: 28px;
+  padding: 44px 40px;
+}
+
+.plannerForm {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+/* Step Block */
+.stepBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #e4e4e7;
+}
+
+.stepBlock:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.stepHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.stepNum {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #FF6A00;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  background: rgba(255, 106, 0, 0.08);
+  padding: 6px 12px;
+  border-radius: 10px;
+}
+
+.stepTitle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #18181b;
+  letter-spacing: -0.02em;
+  margin: 0 0 4px;
+}
+
+.stepSub {
+  font-size: 13px;
+  color: #71717a;
+  margin: 0;
+}
+
+/* Options Grid */
+.optionsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.optionsGridTwoCol {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.optionCard {
+  background: #ffffff;
+  border: 1.5px solid #e4e4e7;
+  border-radius: 14px;
+  padding: 14px 18px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: all 0.2s ease;
+}
+
+.optionCard:hover {
+  border-color: #18181b;
+  background: #ffffff;
+}
+
+.optionCardActive {
+  background: #18181b !important;
+  border-color: #18181b !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.optionLabel {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #18181b;
+}
+
+.optionCardActive .optionLabel {
+  color: #ffffff !important;
+}
+
+.optionDesc {
+  font-size: 11.5px;
+  color: #71717a;
+}
+
+.optionCardActive .optionDesc {
+  color: #a1a1aa !important;
+}
+
+/* Timeline Row */
+.timelineRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.timelineBtn {
+  background: #ffffff;
+  border: 1.5px solid #e4e4e7;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #52525b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.timelineBtn:hover {
+  border-color: #18181b;
+  color: #18181b;
+}
+
+.timelineBtnActive {
+  background: #18181b !important;
+  border-color: #18181b !important;
+  color: #ffffff !important;
+}
+
+/* Fields Grid */
+.fieldsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.inputGroupFull {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.inputLabel {
+  font-size: 12px;
+  font-weight: 700;
+  color: #27272a;
+}
+
+.textInput,
+.textArea {
+  background: #ffffff;
+  border: 1.5px solid #e4e4e7;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 13.5px;
+  color: #18181b;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s ease;
+}
+
+.textInput:focus,
+.textArea:focus {
+  border-color: #FF6A00;
+}
+
+/* Submit Button */
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 18px 32px;
+  border-radius: 9999px;
+  background: #FF6A00;
+  color: #ffffff;
+  border: none;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 8px 24px rgba(255, 106, 0, 0.35);
+}
+
+.submitBtn:hover {
+  background: #e05e00;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(255, 106, 0, 0.45);
+}
+
+/* Success Card */
+.successCard {
+  text-align: center;
+  padding: 48px 24px;
+}
+
+.successIconBox {
+  margin-bottom: 20px;
+}
+
+.successTitle {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #18181b;
+  margin: 0 0 12px;
+}
+
+.successDesc {
+  font-size: 14.5px;
+  color: #71717a;
+  line-height: 1.6;
+  max-width: 480px;
+  margin: 0 auto 28px;
+}
+
+.resetBtn {
+  padding: 12px 24px;
+  border-radius: 9999px;
+  border: 1.5px solid #18181b;
+  background: transparent;
+  color: #18181b;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.resetBtn:hover {
+  background: #18181b;
+  color: #ffffff;
+}
+
+/* ── Summary Column ────────────────────────────────────────── */
+.summaryCol {
+  position: sticky;
+  top: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.summaryCard {
+  background: #09090d;
+  color: #ffffff;
+  border-radius: 24px;
+  padding: 30px 26px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.summaryTop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #FF6A00;
+  margin-bottom: 22px;
+}
+
+.summaryBody {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 20px;
+}
+
+.summaryItem {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-.heroSub {
-  font-size: clamp(1.05rem, 2vw, 1.25rem);
-  color: var(--color-muted, #71717a);
-  max-width: 600px;
+.sumLabel {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #71717a;
+}
+
+.sumVal {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.guaranteeBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  color: #a1a1aa;
+  line-height: 1.4;
+}
+
+/* Booking Card */
+.bookingCard {
+  background: #fafafa;
+  border: 1px solid #e4e4e7;
+  border-radius: 24px;
+  padding: 28px 24px;
+}
+
+.bookIconWrap {
+  margin-bottom: 14px;
+}
+
+.bookTitle {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #18181b;
+  margin: 0 0 8px;
+}
+
+.bookDesc {
+  font-size: 12.5px;
+  color: #71717a;
+  line-height: 1.55;
+  margin: 0 0 18px;
+}
+
+.bookBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: 9999px;
+  background: #18181b;
+  color: #ffffff;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.bookBtn:hover {
+  background: #FF6A00;
+  transform: translateY(-2px);
+}
+
+/* ── 3. Global Offices & Live Timezones ─────────────────────── */
+.globalSection {
+  padding: 90px 0 100px;
+  background: #fafafa;
+  border-top: 1px solid #e4e4e7;
+}
+
+.globalHeader {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 52px;
+}
+
+.globalBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  background: rgba(255, 106, 0, 0.08);
+  color: #FF6A00;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.globalTitle {
+  font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #18181b;
+  line-height: 1.15;
+  margin: 0 0 12px;
+}
+
+.globalSub {
+  font-size: 14.5px;
+  color: #71717a;
   line-height: 1.6;
-  margin-top: 16px;
+  margin: 0;
+}
+
+.officesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.officeCard {
+  background: #ffffff;
+  border: 1px solid #e4e4e7;
+  border-radius: 20px;
+  padding: 26px 22px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
+}
+
+.officeCard:hover {
+  border-color: #18181b;
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.07);
+}
+
+.officeTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.officeType {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #71717a;
+  background: #f4f4f5;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.liveClock {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #18181b;
+  font-family: monospace;
+}
+
+.officeCity {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #18181b;
+  margin: 0 0 2px;
+}
+
+.officeCountry {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #FF6A00;
+  margin: 0 0 12px;
+}
+
+.officeAddress {
+  font-size: 12px;
+  color: #71717a;
+  line-height: 1.5;
+  margin: 0 0 18px;
+  min-height: 36px;
+}
+
+.officeFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid #e4e4e7;
+  font-size: 11px;
+}
+
+.tzBadge {
+  font-weight: 700;
+  color: #52525b;
+}
+
+.phoneLink {
+  color: #71717a;
+  font-weight: 500;
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .plannerGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .summaryCol {
+    position: static;
+  }
+
+  .officesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 100px 0 50px;
+  }
+
+  .configuratorCol {
+    padding: 28px 20px;
+  }
+
+  .optionsGridTwoCol {
+    grid-template-columns: 1fr;
+  }
+
+  .timelineRow {
+    grid-template-columns: 1fr;
+  }
+
+  .fieldsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .officesGrid {
+    grid-template-columns: 1fr;
+  }
 }

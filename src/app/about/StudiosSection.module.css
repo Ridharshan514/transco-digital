@@ -1,0 +1,375 @@
+/* ═════════════════════════════════════════════════════════
+   StudiosSection.module.css
+   Three-panel accordion — each studio is its own world.
+   ═════════════════════════════════════════════════════════ */
+
+.section {
+  padding: 90px 0 100px;
+  background: #09090d;
+  overflow: hidden;
+}
+
+/* ── Header ──────────────────────────────────────────── */
+.header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #FF6A00;
+  padding: 5px 14px;
+  border: 1px solid rgba(255, 106, 0, 0.3);
+  border-radius: 9999px;
+  background: rgba(255, 106, 0, 0.06);
+}
+
+.title {
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.lightWord {
+  font-weight: 300;
+  color: #71717a;
+}
+
+.boldWord {
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.subtitle {
+  font-size: 15.5px;
+  color: #52525b;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Panel Wrap ──────────────────────────────────────── */
+/* Three horizontal panels that accordion-expand on hover/click */
+.panelsWrap {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0;
+  min-height: 520px;
+  /* No container padding — panels go full-width edge to edge */
+  margin: 0 auto;
+  max-width: 1360px;
+  padding: 0 24px;
+  gap: 16px;
+}
+
+/* ── Individual Panel ────────────────────────────────── */
+.panel {
+  position: relative;
+  cursor: pointer;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #111116;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  display: flex;
+  flex-direction: row;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+  flex-shrink: 0;
+  min-width: 72px;
+}
+
+/* Active panel gets all remaining space */
+.panelActive {
+  flex: 1;
+  border-color: var(--studio-color-border);
+  box-shadow:
+    0 0 0 1px var(--studio-color-border),
+    0 24px 60px -20px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* Idle panels are narrow tabs */
+.panelIdle {
+  flex: 0 0 80px;
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.panelIdle:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: #141419;
+}
+
+/* Left accent bar */
+.accentBar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  border-radius: 9999px 0 0 9999px;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+.panelIdle .accentBar {
+  opacity: 0.35;
+}
+
+/* Giant watermark number */
+.watermark {
+  position: absolute;
+  right: -10px;
+  bottom: -24px;
+  font-size: 170px;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  color: rgba(255, 255, 255, 0.025);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  transition: color 0.4s ease, transform 0.4s ease;
+}
+
+.watermarkActive {
+  color: rgba(255, 255, 255, 0.05);
+  transform: scale(1.05) translateY(-8px);
+}
+
+/* ── Panel Body ──────────────────────────────────────── */
+.panelBody {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 28px 28px 28px;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Top row: number badge + icon */
+.topRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  flex-shrink: 0;
+}
+
+.numBadge {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #3f3f46;
+}
+
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+/* Studio name — big, vertical when idle */
+.studioName {
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0 0 12px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  transition: color 0.3s ease;
+}
+
+/* When idle: rotate name vertically */
+.panelIdle .studioName {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  flex-direction: row;
+  gap: 0;
+  color: #52525b !important;
+  margin: auto 0;
+}
+
+/* Collapse name lines when vertical */
+.panelIdle .nameLine + .nameLine {
+  display: none;
+}
+
+.nameLine {
+  display: block;
+  white-space: nowrap;
+}
+
+/* Idle hint */
+.idleHint {
+  display: none;
+  font-size: 11px;
+  color: #3f3f46;
+  margin-top: auto;
+}
+
+/* ── Expanded Content ────────────────────────────────── */
+.expandedContent {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  overflow: hidden;
+}
+
+.tagline {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.description {
+  font-size: 14.5px;
+  color: #a1a1aa;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 480px;
+}
+
+/* Capability tags grid */
+.capabilitiesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.capTag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  white-space: nowrap;
+  background: transparent;
+  letter-spacing: 0.02em;
+}
+
+/* Footer: stat + CTA */
+.panelFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.statBadge {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #71717a;
+}
+
+.statDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: gap 0.2s ease, opacity 0.2s ease;
+  white-space: nowrap;
+}
+
+.ctaBtn:hover {
+  gap: 8px;
+  opacity: 0.8;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 900px) {
+  .panelsWrap {
+    flex-direction: column;
+    min-height: unset;
+    padding: 0 20px;
+    gap: 12px;
+  }
+
+  .panel {
+    flex: unset !important;
+    width: 100%;
+    min-width: unset;
+    flex-direction: column;
+  }
+
+  .panelIdle {
+    flex: unset;
+  }
+
+  .panelIdle .studioName {
+    writing-mode: horizontal-tb;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-transform: none;
+    color: #a1a1aa !important;
+    flex-direction: column;
+  }
+
+  .panelIdle .nameLine + .nameLine {
+    display: block;
+  }
+
+  .idleHint {
+    display: block;
+    margin-top: 12px;
+  }
+
+  .watermark {
+    font-size: 100px;
+  }
+
+  .panelBody {
+    padding: 24px 22px 22px;
+  }
+
+  .studioName {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 60px 0 70px;
+  }
+
+  .header {
+    margin-bottom: 36px;
+  }
+}

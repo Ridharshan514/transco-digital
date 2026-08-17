@@ -1,0 +1,127 @@
+/* ═════════════════════════════════════════════════════════════════
+   SEED TO TREE GROWTH VISUALIZER — Styles
+   ═════════════════════════════════════════════════════════════════ */
+
+.treeVisualContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  background: #09090d;
+  border-radius: 28px;
+  padding: 32px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.visualHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.stageIndicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stagePulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ff6a00;
+  animation: pulseSeed 2s infinite;
+}
+
+@keyframes pulseSeed {
+  0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 10px #ff6a00; }
+  50%       { opacity: 0.5; transform: scale(0.8); box-shadow: none; }
+}
+
+.stageName {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.stageSubtitle {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.02em;
+}
+
+.svgWrapper {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.treeSvg {
+  width: 100%;
+  height: 100%;
+  max-height: 380px;
+}
+
+/* Progress bar at bottom */
+.growthProgressWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 2;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.growthTrack {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.growthFill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff6a00 0%, #ff8533 50%, #3b82f6 100%);
+  border-radius: 9999px;
+}
+
+.growthLabels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 768px) {
+  .treeVisualContainer {
+    min-height: 400px;
+    padding: 24px 18px 18px;
+  }
+  .svgWrapper {
+    height: 300px;
+  }
+  .growthLabels {
+    font-size: 9px;
+  }
+}
