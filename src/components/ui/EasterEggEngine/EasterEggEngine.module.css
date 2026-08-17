@@ -1,0 +1,142 @@
+.secretMode {
+  filter: invert(0.9) hue-rotate(180deg);
+  transition: filter 0.5s ease;
+}
+
+.modalBody {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.specGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.specCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-card, 16px);
+}
+
+.specIcon {
+  color: #ff6a00;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.specCard strong {
+  font-size: 13px;
+  color: #ffffff;
+  display: block;
+}
+
+.specCard p {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 2px;
+}
+
+.note {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.heartIcon {
+  color: #ff6a00;
+}
+
+.signatureBlock {
+  margin-top: 10px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sigTitle {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.sigSub {
+  font-size: 12.5px;
+  color: #ff6a00;
+}
+
+/* ── Secret Video Player ── */
+.videoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.videoWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-card, 16px);
+  overflow: hidden;
+  background: #000000;
+  border: 1px solid rgba(255, 106, 0, 0.3);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+}
+
+.videoElement {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.videoControlsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.videoTag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.videoTag svg {
+  color: #ff6a00;
+}
+
+.soundBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-pill, 9999px);
+  color: #ffffff;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.soundBtn:hover {
+  background: rgba(255, 106, 0, 0.2);
+  border-color: rgba(255, 106, 0, 0.4);
+}
+
+@media (max-width: 640px) {
+  .specGrid {
+    grid-template-columns: 1fr;
+  }
+}

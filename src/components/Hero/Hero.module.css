@@ -1,0 +1,170 @@
+/* ═══════════════════════════════════════════════════════
+   HERO — clean flexbox-row layout
+   ═══════════════════════════════════════════════════════ */
+
+.hero {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  min-height: 100svh;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+/* ── LEFT — text, vertically centred, padded like container ── */
+.leftCol {
+  flex: 0 0 42%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 28px;
+  /* top pad accounts for fixed navbar */
+  padding: 120px 32px 60px max(100px, min(160px, 12vw));
+  max-width: 600px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(0,0,0,.04);
+  border: 1px solid #e4e4e7;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #71717a;
+  width: fit-content;
+}
+
+.badgeDot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #ff6a00;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,100% { opacity:1; transform:scale(1); }
+  50%      { opacity:.6; transform:scale(.85); }
+}
+
+.headline {
+  margin: 0;
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  line-height: 1.06;
+  letter-spacing: -.035em;
+  display: flex;
+  flex-direction: column;
+}
+
+.lightLine { font-weight: 300; color: #9b9b9b; }
+.boldLine  { font-weight: 800; color: #18181b; margin-top: .05em; }
+
+.subtext {
+  margin: 0;
+  font-size: clamp(.9rem, 1.3vw, 1.05rem);
+  color: #71717a;
+  line-height: 1.65;
+  max-width: 380px;
+}
+
+.ctaRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.iconBtn {
+  display: flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px;
+  background: #18181b; color: #fff;
+  border-radius: 9999px; text-decoration: none;
+  transition: transform .2s, opacity .2s; flex-shrink: 0;
+}
+.iconBtn:hover { opacity: .85; transform: scale(1.05); }
+
+.primaryBtn {
+  display: inline-flex; align-items: center;
+  padding: 12px 26px;
+  background: #18181b; color: #fff;
+  font-size: 14px; font-weight: 600; letter-spacing: -.01em;
+  border-radius: 9999px; text-decoration: none;
+  transition: transform .2s, opacity .2s;
+}
+.primaryBtn:hover { opacity: .85; transform: scale(1.02); }
+
+.secondaryBtn {
+  display: inline-flex; align-items: center;
+  padding: 12px 22px;
+  background: transparent; color: #18181b;
+  font-size: 14px; font-weight: 500;
+  border: 1.5px solid #e4e4e7; border-radius: 9999px;
+  text-decoration: none; transition: border-color .2s, background .2s;
+}
+.secondaryBtn:hover { border-color: #18181b; background: rgba(0,0,0,.04); }
+
+.trustRow {
+  display: flex; align-items: center;
+  gap: 20px; padding-top: 20px;
+  border-top: 1px solid #e4e4e7;
+}
+.trustItem  { display: flex; flex-direction: column; }
+.trustNum   { font-size: 22px; font-weight: 800; letter-spacing: -.03em; color: #18181b; }
+.trustLabel { font-size: 11px; color: #a1a1aa; font-weight: 500; }
+.trustDivider { width: 1px; height: 32px; background: #e4e4e7; }
+
+/* ── RIGHT — globe, fills the wider right portion ─────────── */
+.rightCol {
+  flex: 1 1 58%;
+  position: relative;
+  min-height: 500px;
+}
+
+/* Canvas fills the right column completely */
+.rightCol > * {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    min-height: auto;
+    padding-top: 90px;
+  }
+
+  .rightCol {
+    order: 1;
+    flex: none;
+    width: 100%;
+    height: 70vw;
+    max-height: 420px;
+    min-height: unset;
+  }
+
+  .leftCol {
+    flex: none;
+    order: 2;
+    width: 100%;
+    max-width: 100%;
+    padding: 32px 24px 56px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .subtext { text-align: center; }
+  .ctaRow  { justify-content: center; }
+  .trustRow { justify-content: center; }
+}
+
+@media (max-width: 480px) {
+  .trustDivider { display: none; }
+  .trustRow     { gap: 14px; }
+  .rightCol     { height: 85vw; }
+}

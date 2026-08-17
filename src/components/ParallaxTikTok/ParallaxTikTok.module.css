@@ -1,0 +1,69 @@
+.wrapper {
+  pointer-events: none;
+}
+
+.parallaxContainer {
+  position: fixed;
+  top: 26vh;
+  right: 4vw;
+  width: 260px;
+  height: 260px;
+  z-index: 2;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform, opacity;
+}
+
+.tiktokGlow {
+  position: absolute;
+  inset: -30%;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 242, 254, 0.25) 0%,
+    rgba(254, 44, 85, 0.18) 45%,
+    transparent 70%
+  );
+  filter: blur(40px);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.tiktokSvg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.layerCyan {
+  transform: translate(-10px, -6px);
+  opacity: 0.85;
+}
+
+.layerMagenta {
+  transform: translate(10px, 6px);
+  opacity: 0.85;
+}
+
+.layerMain {
+  opacity: 0.9;
+}
+
+@media (max-width: 1024px) {
+  .parallaxContainer {
+    width: 200px;
+    height: 200px;
+    right: 2vw;
+    top: 30vh;
+  }
+}
+
+@media (max-width: 640px) {
+  .parallaxContainer {
+    width: 140px;
+    height: 140px;
+    right: 2vw;
+    top: 35vh;
+  }
+}

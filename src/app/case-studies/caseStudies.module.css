@@ -1,0 +1,180 @@
+.page {
+  padding-top: var(--space-24, 96px);
+}
+
+.heroSection {
+  padding-block: var(--space-16, 64px) var(--space-12, 48px);
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: var(--color-surface, #f4f4f5);
+  border: 1px solid var(--color-border, #e4e4e7);
+  border-radius: var(--radius-pill, 9999px);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--color-text, #18181b);
+  margin-bottom: var(--space-6, 24px);
+}
+
+.heroTitle {
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.heroSub {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: var(--color-muted, #71717a);
+  max-width: 680px;
+  line-height: 1.6;
+  margin-top: var(--space-6, 24px);
+}
+
+/* Studies Grid */
+.studiesSection {
+  border-top: 1px solid var(--color-border, #e4e4e7);
+}
+
+.studiesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-8, 32px);
+}
+
+.studyCard {
+  background: var(--color-bg, #ffffff);
+  border: 1px solid var(--color-border, #e4e4e7);
+  border-radius: var(--radius-card-lg, 24px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s;
+}
+
+.studyCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+}
+
+.imageWrap {
+  position: relative;
+  height: 260px;
+}
+
+.coverImage {
+  object-fit: cover;
+}
+
+.industryTag {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill, 9999px);
+}
+
+.cardContent {
+  padding: var(--space-6, 24px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.clientName {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ff6a00;
+}
+
+.cardContent h2 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.cardContent p {
+  font-size: 14px;
+  color: var(--color-muted, #71717a);
+  line-height: 1.6;
+}
+
+.metricsRow {
+  display: flex;
+  gap: 20px;
+  padding-block: 16px;
+  border-block: 1px solid var(--color-border, #e4e4e7);
+  margin-top: 8px;
+}
+
+.metricItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.metricStat {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--color-text, #18181b);
+}
+
+.metricLabel {
+  font-size: 11px;
+  color: var(--color-subtle, #a1a1aa);
+  font-weight: 500;
+}
+
+.tagsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  font-size: 11.5px;
+  font-weight: 500;
+  padding: 3px 10px;
+  background: var(--color-surface, #f4f4f5);
+  border-radius: 6px;
+  color: var(--color-muted, #71717a);
+}
+
+.cardAction {
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.readMoreBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text, #18181b);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.readMoreBtn:hover {
+  color: #ff6a00;
+}
+
+@media (max-width: 1024px) {
+  .studiesGrid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,71 @@
+.cursorDot {
+  position: fixed;
+  top: -4px;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-accent, #ff6a00);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transition: opacity 0.2s, transform 0.05s ease-out;
+  will-change: transform;
+}
+
+.cursorDotHover {
+  opacity: 0;
+}
+
+.cursorRing {
+  position: fixed;
+  top: -18px;
+  left: -18px;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(10, 10, 10, 0.4);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    top 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    left 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.25s, background-color 0.25s;
+  will-change: transform;
+}
+
+.cursorRingHover {
+  top: -28px;
+  left: -28px;
+  width: 56px;
+  height: 56px;
+  border-color: rgba(255, 106, 0, 0.8);
+  background-color: rgba(255, 106, 0, 0.08);
+  backdrop-filter: blur(2px);
+}
+
+.cursorText {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ff6a00;
+  white-space: nowrap;
+}
+
+.trailDot {
+  position: fixed;
+  top: -3px;
+  left: -3px;
+  width: 6px;
+  height: 6px;
+  background-color: #ff6a00;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  box-shadow: 0 0 8px rgba(255, 106, 0, 0.6);
+  will-change: transform;
+}

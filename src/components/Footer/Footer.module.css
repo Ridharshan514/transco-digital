@@ -1,0 +1,359 @@
+.footer {
+  position: relative;
+  background: #0B0F0D;
+  background-image: radial-gradient(ellipse 70% 50% at 50% 0%, #141c17, #000000 80%);
+  overflow: hidden;
+  padding-top: var(--space-24);
+}
+
+/* ── 3D Sphere placement ── */
+.sphereContainer {
+  position: absolute;
+  top: -60px;
+  right: -80px;
+  width: 520px;
+  height: 520px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.55;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Top section ── */
+.top {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: var(--space-16);
+  padding-bottom: var(--space-16);
+  align-items: start;
+}
+
+/* ── Logo ── */
+.logoWrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.logoMark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.logoText {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: white;
+}
+
+.tagline {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1.65;
+  margin-bottom: var(--space-8);
+}
+
+/* ── Newsletter ── */
+.newsletter {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+}
+
+.newsletterLabel {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.newsletterForm {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.inputWrap {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.emailInput {
+  width: 100%;
+  padding: 10px 44px 10px 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-pill);
+  color: white;
+  font-size: 13px;
+  font-family: var(--font-sans);
+  outline: none;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.emailInput::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.emailInput:focus {
+  border-color: rgba(255, 106, 0, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.sendBtn {
+  position: absolute;
+  right: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  border: none;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.sendBtn:hover {
+  background: var(--color-accent);
+  color: white;
+}
+
+.subscribeBtn {
+  padding: 10px 18px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-pill);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.subscribeBtn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+/* ── Socials ── */
+.socials {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.socialsLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.socialIcons {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.socialIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.socialIcon:hover {
+  background: rgba(255, 106, 0, 0.15);
+  border-color: rgba(255, 106, 0, 0.3);
+  color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+/* ── Right: Link columns ── */
+.topRight {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+  padding-top: var(--space-2);
+}
+
+.linkCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.colTitle {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+  margin-bottom: var(--space-2);
+}
+
+.linkCol ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.footerLink {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  display: inline-block;
+}
+
+.footerLink:hover {
+  color: white;
+}
+
+.footerCta {
+  margin-top: var(--space-4);
+}
+
+.footerCtaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 9px 18px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.footerCtaBtn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ── Divider ── */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.07);
+  margin-block: var(--space-6);
+}
+
+/* ── Oversized Wordmark ── */
+.wordmarkWrap {
+  position: relative;
+  overflow: hidden;
+  line-height: 0.85;
+  margin-bottom: -0.05em;
+  user-select: none;
+}
+
+.wordmark {
+  font-size: clamp(10vw, 18vw, 260px);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  /* Outlined text effect using stroke technique */
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.12);
+  /* Subtle amber gradient texture clipped to text */
+  background: linear-gradient(
+    135deg,
+    rgba(255, 106, 0, 0.15) 0%,
+    rgba(255, 255, 255, 0.06) 40%,
+    rgba(255, 106, 0, 0.08) 70%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  line-height: 0.85;
+  white-space: nowrap;
+}
+
+.wordmarkLetter {
+  display: inline-block;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), -webkit-text-stroke-color 0.3s;
+}
+
+.wordmarkLetter:hover {
+  transform: translateY(-8px) scale(1.06);
+  -webkit-text-stroke-color: rgba(255, 106, 0, 0.8);
+}
+
+/* ── Copyright ── */
+.copyright {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--space-5);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.25);
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.copyrightRight {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.18);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .top { grid-template-columns: 1fr; gap: var(--space-12); }
+  .sphereContainer { right: -100px; top: -40px; width: 380px; height: 380px; }
+}
+
+@media (max-width: 640px) {
+  .topRight { grid-template-columns: repeat(2, 1fr); }
+  .newsletterForm { flex-direction: column; }
+  .subscribeBtn { width: 100%; }
+  .sphereContainer { display: none; }
+  .wordmark { font-size: 18vw; }
+  .copyright { flex-direction: column; text-align: center; }
+}
