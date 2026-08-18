@@ -65,7 +65,8 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true },
   },
   icons: {
-    icon: '/favicon.ico',
+    icon: '/transco-icon.png',
+    apple: '/transco-icon.png',
   },
 };
 

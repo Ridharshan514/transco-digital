@@ -3,7 +3,7 @@
 /**
  * Navbar.tsx — Creative Floating Island Navigation & Mobile App Bottom Nav Dock
  * Features:
- * 1. Bold company brand identity
+ * 1. Official Transco Digital Brand Logo & Icon
  * 2. Sliding Pill Glider (`layoutId="navGlider"`) for desktop
  * 3. Mobile Top Floating Island Header
  * 4. Mobile Bottom App Dock Navigation Bar with Agency Icons
@@ -11,6 +11,7 @@
  */
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -89,16 +90,22 @@ export default function Navbar() {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       >
         <nav className={styles.nav} aria-label="Main Navigation">
-          {/* Left: Bold Clear Company Brand Logo */}
+          {/* Left: Official Transco Digital Brand Logo & Emblem */}
           <Link
             href="/"
             className={styles.logo}
             aria-label="Transco Digital — Home"
             onClick={handleLogoClick}
           >
-            <span className={styles.logoMark}>
-              <span className={styles.logoMarkText}>TD</span>
-              <span className={styles.logoMarkGlow} />
+            <span className={styles.logoMarkWrap}>
+              <Image
+                src="/transco-icon.png"
+                alt="Transco Digital Emblem"
+                width={32}
+                height={32}
+                className={styles.logoImg}
+                priority
+              />
             </span>
             <span className={styles.logoText}>
               Transco <span className={styles.logoHighlight}>Digital</span>
@@ -213,9 +220,18 @@ export default function Navbar() {
               onClick={(e) => e.stopPropagation()}
             >
               <div className={styles.drawerHeader}>
-                <span className={styles.drawerLogoText}>
-                  Transco <span className={styles.logoHighlight}>Digital</span>
-                </span>
+                <div className={styles.drawerLogoWrap}>
+                  <Image
+                    src="/transco-icon.png"
+                    alt="Transco Digital"
+                    width={28}
+                    height={28}
+                    className={styles.drawerLogoImg}
+                  />
+                  <span className={styles.drawerLogoText}>
+                    Transco <span className={styles.logoHighlight}>Digital</span>
+                  </span>
+                </div>
               </div>
 
               <ul className={styles.drawerLinksList} role="list">

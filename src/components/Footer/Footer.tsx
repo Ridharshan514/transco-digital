@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Phone, Mail, MapPin, Send, ArrowRight } from 'lucide-react';
 import styles from './Footer.module.css';
 
@@ -76,7 +77,13 @@ export default function Footer() {
           {/* Left: Brand Identity & Newsletter */}
           <div className={styles.topLeft}>
             <div className={styles.logoWrap}>
-              <div className={styles.logoMark}>TD</div>
+              <Image
+                src="/transco-icon.png"
+                alt="Transco Digital"
+                width={34}
+                height={34}
+                className={styles.footerLogoImg}
+              />
               <span className={styles.logoText}>Transco Digital</span>
             </div>
             <p className={styles.tagline}>
