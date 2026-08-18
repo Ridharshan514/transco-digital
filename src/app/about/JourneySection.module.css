@@ -1,11 +1,10 @@
 /* ═══════════════════════════════════════════════════════════
-   JourneySection.module.css — Compact Creative Timeline
+   JourneySection.module.css — Black Obsidian Heartbeat Arc Card
    ═══════════════════════════════════════════════════════════ */
 
 .section {
   padding: 80px 0 90px;
-  background: #fafafa;
-  border-top: 1px solid #e4e4e7;
+  background: #ffffff;
   border-bottom: 1px solid #e4e4e7;
 }
 
@@ -42,36 +41,24 @@
   color: #18181b;
 }
 
-/* ── Arc Card ────────────────────────────────────────── */
+/* ── Arc Card (Black Obsidian) ───────────────────────── */
 .arcCard {
   background: #09090d;
   border-radius: 28px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 44px 44px 36px;
+  padding: 44px 40px 36px;
   box-shadow:
-    0 24px 60px -15px rgba(0, 0, 0, 0.45),
+    0 24px 60px -15px rgba(0, 0, 0, 0.35),
     inset 0 1px 0 rgba(255, 255, 255, 0.06);
   display: flex;
   flex-direction: column;
-  gap: 0;
   overflow: hidden;
   position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Subtle radial glow behind the arc */
-.arcCard::before {
-  content: '';
-  position: absolute;
-  top: -60px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 600px;
-  height: 260px;
-  background: radial-gradient(ellipse at center, rgba(255, 106, 0, 0.08) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-/* ── SVG Arc ─────────────────────────────────────────── */
+/* ── SVG Graphic ─────────────────────────────────────── */
 .svgWrapper {
   width: 100%;
   position: relative;
@@ -80,13 +67,12 @@
 .svg {
   width: 100%;
   height: auto;
-  display: block;
   overflow: visible;
+  display: block;
 }
 
-/* CSS-driven stroke animation (no GSAP needed) */
 .arcPath {
-  transition: stroke-dashoffset 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: stroke-dashoffset 2.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .arcPathVisible {
@@ -94,35 +80,30 @@
 }
 
 .svgAnnotation {
-  font-size: 10px;
-  font-weight: 600;
-  fill: #4b5563;
-  letter-spacing: 0.03em;
+  font-size: 11px;
   font-family: inherit;
-}
-
-/* Milestone dot hover group */
-.dotGroup {
-  cursor: pointer;
+  font-weight: 700;
+  fill: #71717a;
+  letter-spacing: 0.02em;
 }
 
 /* ── Milestone Row ───────────────────────────────────── */
 .milestoneRow {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 0;
-  margin-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 16px;
   padding-top: 24px;
 }
 
 .milestone {
-  padding: 0 14px;
-  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0 16px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  transition: opacity 0.25s ease;
+  gap: 4px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  transition: opacity 0.2s ease;
+  cursor: default;
 }
 
 .milestone:first-child {
@@ -134,107 +115,52 @@
   padding-right: 0;
 }
 
-/* Dim non-hovered entries when something is hovered */
-.milestoneRow:has(.milestoneHovered) .milestone:not(.milestoneHovered) {
-  opacity: 0.35;
-}
-
 .milestoneHovered {
-  opacity: 1 !important;
-}
-
-/* 2022 dip: slightly desaturated default appearance */
-.milestoneDip .milestoneYear {
-  opacity: 0.75;
+  opacity: 1;
 }
 
 .milestoneYear {
-  font-size: 18px;
+  font-size: 1.25rem;
   font-weight: 800;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.03em;
   line-height: 1;
+  margin-bottom: 2px;
 }
 
 .milestoneTitle {
-  font-size: 11.5px;
+  font-size: 13px;
   font-weight: 700;
-  color: #e4e4e7;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  color: #ffffff;
+  letter-spacing: -0.01em;
 }
 
 .milestoneNote {
-  font-size: 12.5px;
-  color: #71717a;
+  font-size: 12px;
+  color: #a1a1aa;
   line-height: 1.5;
-  margin: 4px 0 0;
+  margin: 0;
 }
 
 /* ── Responsive ──────────────────────────────────────── */
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
   .arcCard {
-    padding: 36px 28px 28px;
-  }
-}
-
-@media (max-width: 768px) {
-  .section {
-    padding: 60px 0 70px;
+    padding: 32px 24px;
   }
 
-  .arcCard {
-    padding: 28px 20px 24px;
-    border-radius: 20px;
-  }
-
-  /* Hide the SVG arc on mobile — too narrow to be readable */
-  .svgWrapper {
-    display: none;
-  }
-
-  /* Mobile: single column vertical list */
   .milestoneRow {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 20px;
-    border-top: none;
-    padding-top: 0;
+    margin-top: 24px;
   }
 
   .milestone {
-    padding: 16px;
     border-right: none;
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 14px;
-    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0 0 16px 0;
   }
 
-  .milestoneRow:has(.milestoneHovered) .milestone:not(.milestoneHovered) {
-    opacity: 1;
-  }
-
-  .milestoneNote {
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .milestoneRow {
-    grid-template-columns: 1fr;
-  }
-
-  .title {
-    font-size: 1.9rem;
-  }
-}
-
-/* ── Reduced motion ──────────────────────────────────── */
-@media (prefers-reduced-motion: reduce) {
-  .arcPath {
-    transition: none;
-  }
-
-  .arcPathVisible {
-    stroke-dashoffset: 0 !important;
-    stroke-dasharray: none !important;
+  .milestone:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
   }
 }

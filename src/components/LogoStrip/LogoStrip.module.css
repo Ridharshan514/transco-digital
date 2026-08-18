@@ -13,7 +13,7 @@
   align-items: center;
   gap: var(--space-4);
   width: max-content;
-  animation: marquee 28s linear infinite;
+  animation: marquee 65s linear infinite;
 }
 
 .track:hover {

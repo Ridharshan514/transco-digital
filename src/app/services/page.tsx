@@ -1,422 +1,265 @@
 'use client';
 
 /**
- * ServicesPage.tsx — Modernized Agency Capabilities
+ * ServicesPage.tsx — Minimal, High-Efficiency Capabilities Showcase
  * Features:
- * 1. Interactive Capability Switcher / Matrix
- * 2. Transco 4-Step Agency Sprint (Operating System)
- * 3. Enterprise Tech Stack & Tooling Grid
- * 4. Flexible Engagement Models & CTA
+ * 1. Minimal Hero
+ * 2. Animated Social Media Ecosystem Marquee & Interactive Platform Cloud
+ * 3. 6 Core Capabilities with Blueprint Routing
+ * 4. 4-Step Sprint Workflow
+ * 5. High-Contrast Obsidian CTA
  */
 
-import { useState } from 'react';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   ArrowUpRight,
-  Sparkles,
-  Compass,
-  Palette,
-  FileText,
-  TrendingUp,
   Video,
   PlaySquare,
+  TrendingUp,
+  Palette,
+  Compass,
   Layers,
-  CheckCircle2,
-  Cpu,
-  Workflow,
-  Zap,
-  BarChart3,
-  Clock,
-  ShieldCheck,
 } from 'lucide-react';
+import ParallaxSocials from '@/components/ParallaxSocials/ParallaxSocials';
 import styles from './services.module.css';
 
-// ── Extended Capabilities List ────────────────────────────────────────────────
-const capabilityCategories = [
-  { id: 'all', label: 'All Capabilities' },
-  { id: 'short-form', label: 'TikTok & Short-Form' },
-  { id: 'creator', label: 'YouTube Automation' },
-  { id: 'paid', label: 'Paid Performance Media' },
-  { id: 'brand', label: 'Strategy & Brand Identity' },
-];
+// ── Inline High-Precision Social Media SVGs ──────────────────────────────────
+const TikTokIcon = ({ size = 20 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.12V9.42a6.33 6.33 0 0 0-.86-.06 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.28 8.28 0 0 0 4.84 1.56V6.86a4.87 4.87 0 0 1-1.07-.17z" />
+  </svg>
+);
 
-const capabilityCards = [
+const YouTubeIcon = ({ size = 20 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.376.55 9.376.55s7.505 0 9.377-.55a3.016 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+  </svg>
+);
+
+const InstagramIcon = ({ size = 20 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+  </svg>
+);
+
+const MetaIcon = ({ size = 20 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+  </svg>
+);
+
+const LinkedInIcon = ({ size = 20 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+  </svg>
+);
+
+const GoogleIcon = ({ size = 20 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M12.24 10.285V13.4h6.887C18.2 16.03 15.645 18 12.24 18c-3.315 0-6-2.685-6-6s2.685-6 6-6c1.47 0 2.805.54 3.84 1.425l2.4-2.4C16.89 3.48 14.7 2.6 12.24 2.6 7.05 2.6 2.85 6.8 2.85 12s4.2 9.4 9.39 9.4c5.43 0 9.03-3.81 9.03-9.195 0-.615-.06-1.215-.18-1.92H12.24z" />
+  </svg>
+);
+
+const services = [
   {
-    id: 'tiktok-makers',
-    category: 'short-form',
-    badge: 'Proprietary Studio',
+    number: '01',
     title: 'TikTok Makers Viral Engine',
-    tagline: 'Hook architecture & batch short-form production',
-    desc: 'High-velocity short-form video production built specifically for TikTok, Instagram Reels, and YouTube Shorts. Engineered with algorithm-native pacing, trend jacking, and high-retention editing.',
-    accentColor: '#FF6A00',
+    category: 'Short-Form Video',
+    platformIcon: TikTokIcon,
+    tagline: 'Hook architecture & batch 9:16 production.',
+    desc: 'High-velocity vertical video production built specifically for TikTok, Reels, and Shorts algorithms with rapid trend-jacking.',
+    metric: 'Avg. 35%+ Hook Retention',
+    tags: ['Hook Scripting', 'Batch Production', '9:16 Distribution'],
+    linkHref: '/services/content-marketing',
     icon: Video,
-    targetKpi: 'Avg. 35%+ Hook Retention',
-    deliverables: [
-      'Hook Architecture & Scripting',
-      'Batch Video Production Studio',
-      'Trend-Jacking & Native Sound Curation',
-      'Multi-Platform Distribution (TikTok, Reels, Shorts)',
-      'Weekly Retention & Drop-Off Analytics',
-    ],
-    slug: 'content-marketing',
   },
   {
-    id: 'youtube-automation',
-    category: 'creator',
-    badge: 'Creator Infrastructure',
+    number: '02',
     title: 'YouTuber Channel Automation',
-    tagline: 'Full-pipeline video editing, CTR thumbnails & SEO',
-    desc: 'Turn your channel into an automated media asset. We manage packaging, high-CTR thumbnail psychology, pacing-focused editing, keyword research, and audience monetization strategy.',
-    accentColor: '#3B82F6',
+    category: 'Creator Media',
+    platformIcon: YouTubeIcon,
+    tagline: 'Full-pipeline editing, high-CTR thumbnails & SEO.',
+    desc: 'Turn your channel into an automated media asset. We handle pacing edits, high-CTR 3D packaging, and audience monetization.',
+    metric: '1.7M+ Organic Views',
+    tags: ['3D Thumbnails', 'Retention Curve Editing', 'SEO Ranking'],
+    linkHref: '/services/content-marketing',
     icon: PlaySquare,
-    targetKpi: '1.7M+ Organic Views Delivered',
-    deliverables: [
-      'High-CTR 3D/Graphic Thumbnail Design',
-      'Retention Curve Video Editing',
-      'SEO Keyword & Title Optimisation',
-      'Audience Funnel & Lead Magnets',
-      'Sponsorship & Monetization Consulting',
-    ],
-    slug: 'content-marketing',
   },
   {
-    id: 'paid-media',
-    category: 'paid',
-    badge: 'Performance Growth',
-    title: 'Paid Campaigns & Media Buying',
-    tagline: 'Profitable customer acquisition across Meta, TikTok & Google',
-    desc: 'Full-funnel media buying backed by rapid creative testing. We build structured audience architectures, conversion tracking, and high-converting ad formats that maximize ROAS.',
-    accentColor: '#F59E0B',
+    number: '03',
+    title: 'Paid Performance Media Buying',
+    category: 'Revenue Scaling',
+    platformIcon: MetaIcon,
+    tagline: 'Profitable customer acquisition across Meta & Google.',
+    desc: 'Full-funnel media buying backed by rapid creative testing, first-party CAPI attribution, and aggressive scaling.',
+    metric: '4.1× Average ROAS',
+    tags: ['Creative Testing', 'Meta & Google Ads', 'CAPI Attribution'],
+    linkHref: '/services/paid-campaigns',
     icon: TrendingUp,
-    targetKpi: '4.1x Average Account ROAS',
-    deliverables: [
-      'Account Audit & Full Restructure',
-      'Creative Testing Matrix (Static & Video)',
-      'Meta, Google & TikTok Ad Management',
-      'Server-Side CAPI & GA4 Attribution',
-      'Weekly Spend & CAC Optimization Reports',
-    ],
-    slug: 'paid-campaigns',
   },
   {
-    id: 'psc-social',
-    category: 'short-form',
-    badge: 'All-In-One Studio',
+    number: '04',
     title: 'Premium Social Content (PSC)',
-    tagline: 'Turnkey social media management & brand asset creation',
-    desc: 'A dedicated growth squad managing your visual storytelling, content calendar, graphic design, and cross-channel community building — all unified under one strategic partner.',
-    accentColor: '#10B981',
+    category: 'Brand Content',
+    platformIcon: InstagramIcon,
+    tagline: 'Turnkey social media management & brand asset creation.',
+    desc: 'A dedicated growth squad managing your complete visual storytelling, editorial calendar, and cross-channel community.',
+    metric: '30K+ Qualified Leads',
+    tags: ['Editorial Calendars', 'Motion Carousels', 'Community Growth'],
+    linkHref: '/services/content-marketing',
     icon: Layers,
-    targetKpi: '30K+ Qualified Inbound Leads',
-    deliverables: [
-      'Full Editorial Content Calendar',
-      'High-End Visual Identity Assets',
-      'Motion Graphics & Carousel Design',
-      'Community Engagement & Copywriting',
-      'Monthly Strategic Growth Reviews',
-    ],
-    slug: 'content-marketing',
   },
   {
-    id: 'brand-identity',
-    category: 'brand',
-    badge: 'Identity System',
-    title: 'Branding & Visual Architecture',
-    tagline: 'Distinctive brand identities built to scale globally',
-    desc: 'From naming and strategic positioning to complete visual bibles, typography systems, and pitch-ready corporate collateral that command immediate authority in international markets.',
-    accentColor: '#EC4899',
+    number: '05',
+    title: 'Brand Architecture & Identity',
+    category: 'Brand Strategy',
+    platformIcon: LinkedInIcon,
+    tagline: 'Distinctive visual systems built for global authority.',
+    desc: 'From core strategic positioning to complete visual bibles, typography systems, and pitch-ready corporate collateral.',
+    metric: '2× Post-Rebrand Lift',
+    tags: ['Logo Systems', 'Brand Guidelines', 'Corporate Collateral'],
+    linkHref: '/services/branding',
     icon: Palette,
-    targetKpi: '2x Engagement Post-Rebrand',
-    deliverables: [
-      'Brand Strategy & Positioning Statement',
-      'Logo System (Primary, Secondary, Badges)',
-      'Color Palette & Typography Hierarchy',
-      'Comprehensive Brand Style Guidelines',
-      'Social & Corporate Collateral Templates',
-    ],
-    slug: 'branding',
   },
   {
-    id: 'digital-consultation',
-    category: 'brand',
-    badge: 'Strategic Advisory',
+    number: '06',
     title: 'Digital Consultation & Growth Audits',
-    tagline: 'Actionable roadmaps tailored to your market & growth stage',
-    desc: 'Deep-dive competitive teardowns, audience psychology analysis, and channel prioritization matrices that eliminate guesswork and focus your resources on the highest-leverage opportunities.',
-    accentColor: '#4F46E5',
+    category: 'Advisory Sprint',
+    platformIcon: GoogleIcon,
+    tagline: 'Actionable roadmaps tailored to your growth stage.',
+    desc: 'Deep-dive competitive teardowns and channel prioritization matrices that eliminate guesswork and focus your budget.',
+    metric: '94% Client Retention',
+    tags: ['Competitor Audits', '90-Day Roadmaps', 'KPI Frameworks'],
+    linkHref: '/services/digital-consultation',
     icon: Compass,
-    targetKpi: '94% Client Retention Rate',
-    deliverables: [
-      'Comprehensive Digital Footprint Audit',
-      'Competitor Landscape & White-Space Map',
-      'Audience Persona & Psychology Profiles',
-      '90-Day Priority Action Roadmap',
-      'Measurement Framework & KPI Dashboards',
-    ],
-    slug: 'digital-consultation',
   },
 ];
 
-// ── 4-Step Agency Sprint Workflow ─────────────────────────────────────────────
-const sprintSteps = [
-  {
-    step: '01',
-    phase: 'Week 1',
-    title: 'Algorithmic & Brand Audit',
-    desc: 'We dissect your existing assets, analyze competitor white-spaces, and define your channel architecture and core commercial objectives.',
-    accent: '#FF6A00',
-  },
-  {
-    step: '02',
-    phase: 'Week 2',
-    title: 'Hook Architecture & Blueprint',
-    desc: 'Our creative directors engineer your high-retention scripting angles, visual design systems, and audience targeting frameworks.',
-    accent: '#3B82F6',
-  },
-  {
-    step: '03',
-    phase: 'Weeks 3–4',
-    title: 'Batch Production & Launch',
-    desc: 'High-volume production kicks in. Videos are filmed, edited, color-graded, and deployed across designated channels with real-time tracking.',
-    accent: '#10B981',
-  },
-  {
-    step: '04',
-    phase: 'Ongoing',
-    title: 'Attribution & Algorithmic Scale',
-    desc: 'Weekly optimization sprints kill underperformers, double down on viral hooks, and scale profitable ad spend systematically.',
-    accent: '#F59E0B',
-  },
-];
-
-// ── Tech & Tool Stack Grid ───────────────────────────────────────────────────
-const techStack = [
-  { name: 'TikTok Creative Center', category: 'Trend Intelligence', icon: '⚡' },
-  { name: 'Meta Ads Manager', category: 'Paid Performance', icon: '🎯' },
-  { name: 'Google Ads & YouTube', category: 'Search & Video Intent', icon: '🔍' },
-  { name: 'DaVinci Resolve & Premiere', category: 'Cinema Post-Production', icon: '🎬' },
-  { name: 'After Effects & Cinema 4D', category: 'Motion Graphics', icon: '✨' },
-  { name: 'Figma', category: 'UI & Brand Systems', icon: '📐' },
-  { name: 'Google Analytics 4 & CAPI', category: 'Attribution & Tracking', icon: '📊' },
-  { name: 'TripleWhale & Northbeam', category: 'E-Commerce Intelligence', icon: '📈' },
+const workflowSteps = [
+  { step: '01', title: 'Audit & Discovery', time: 'Week 1', desc: 'Dissecting current assets, audience drop-offs, and competitor white-spaces.' },
+  { step: '02', title: 'Hook Architecture', time: 'Week 2', desc: 'Engineering high-retention scripting angles and visual design systems.' },
+  { step: '03', title: 'Batch Production', time: 'Weeks 3–4', desc: 'Filming, editing, color-grading, and deploying 30–60 batch assets.' },
+  { step: '04', title: 'Attribution & Scale', time: 'Ongoing', desc: 'Weekly optimization sprints killing underperformers and scaling winners.' },
 ];
 
 export default function ServicesPage() {
-  const [activeCategory, setActiveCategory] = useState('all');
-
-  const filteredCards =
-    activeCategory === 'all'
-      ? capabilityCards
-      : capabilityCards.filter((c) => c.category === activeCategory);
-
   return (
     <main className={styles.page}>
-      {/* ── 1. Hero Header ────────────────────────────────────────── */}
+      {/* ── Floating Social Media Parallax Ecosystem (TikTok, Insta, YT, Meta, LinkedIn) ── */}
+      <ParallaxSocials />
+
+      {/* ── 1. Clean Minimal Hero ─────────────────────────────────── */}
       <section className={styles.heroSection}>
         <div className="container">
-          <motion.div
-            className={styles.heroBadge}
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Sparkles size={14} color="#FF6A00" />
-            <span>Full-Service International Growth Architecture</span>
-          </motion.div>
-
-          <motion.h1
-            className={styles.heroTitle}
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-          >
-            <span className={styles.lightWord}>Specialized capabilities for</span>{' '}
-            <span className={styles.boldWord}>high-velocity market dominance.</span>
-          </motion.h1>
-
-          <motion.p
-            className={styles.heroSub}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-          >
-            From viral short-form studios to enterprise performance media, Transco Digital operates
-            as an agile growth engine engineered for measurable commercial return.
-          </motion.p>
-        </div>
-      </section>
-
-      {/* ── 2. Interactive Capability Switcher / Matrix ────────────── */}
-      <section className={styles.matrixSection} aria-label="Capabilities Matrix">
-        <div className="container">
-          {/* Category Tabs */}
-          <div className={styles.tabBar}>
-            {capabilityCategories.map((cat) => (
-              <button
-                key={cat.id}
-                className={`${styles.tabBtn} ${activeCategory === cat.id ? styles.tabBtnActive : ''}`}
-                onClick={() => setActiveCategory(cat.id)}
-              >
-                {cat.label}
-              </button>
-            ))}
+          <div className={styles.heroBadge}>
+            <span className={styles.badgeDot} />
+            <span>Capabilities & Execution</span>
           </div>
 
-          {/* Capability Grid */}
-          <motion.div layout className={styles.capabilitiesGrid}>
-            <AnimatePresence>
-              {filteredCards.map((card) => {
-                const IconComp = card.icon;
-                return (
-                  <motion.div
-                    key={card.id}
-                    layout
-                    initial={{ opacity: 0, scale: 0.96 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.96 }}
-                    transition={{ duration: 0.35 }}
-                    className={styles.card}
-                    style={{ '--card-accent': card.accentColor } as React.CSSProperties}
-                  >
-                    {/* Top Row: Icon + Badge */}
-                    <div className={styles.cardTop}>
-                      <div
-                        className={styles.cardIconBox}
-                        style={{
-                          background: `${card.accentColor}18`,
-                          color: card.accentColor,
-                        }}
-                      >
-                        <IconComp size={22} strokeWidth={2} />
-                      </div>
-                      <span className={styles.cardBadge}>{card.badge}</span>
-                    </div>
+          <h1 className={styles.heroTitle}>
+            <span className={styles.lightWord}>Specialized capabilities.</span>{' '}
+            <span className={styles.boldWord}>Unified execution.</span>
+          </h1>
 
-                    {/* Content */}
-                    <h3 className={styles.cardTitle}>{card.title}</h3>
-                    <p className={styles.cardTagline} style={{ color: card.accentColor }}>
-                      {card.tagline}
-                    </p>
-                    <p className={styles.cardDesc}>{card.desc}</p>
-
-                    {/* KPI Target Pill */}
-                    <div className={styles.kpiPill}>
-                      <span className={styles.kpiDot} style={{ background: card.accentColor }} />
-                      <span>{card.targetKpi}</span>
-                    </div>
-
-                    {/* Deliverables List */}
-                    <div className={styles.deliverablesList}>
-                      <p className={styles.delivHeader}>Included Deliverables:</p>
-                      <ul>
-                        {card.deliverables.map((item) => (
-                          <li key={item}>
-                            <CheckCircle2 size={14} color={card.accentColor} className={styles.checkIcon} />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Action */}
-                    <div className={styles.cardFooter}>
-                      <Link href={`/services/${card.slug}`} className={styles.cardLink}>
-                        <span>Explore Deep-Dive</span>
-                        <ArrowUpRight size={15} />
-                      </Link>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </AnimatePresence>
-          </motion.div>
+          <p className={styles.heroSub}>
+            Six focused growth engines built to capture attention, maximize retention, and scale commercial revenue.
+          </p>
         </div>
       </section>
 
-      {/* ── 3. Transco 4-Step Agency Sprint (Operating System) ────── */}
-      <section className={styles.sprintSection} aria-label="Our Delivery System">
+      {/* ── 2. The 6 Core Services (Clean 2-Column Grid) ─────────── */}
+      <section className={styles.servicesSection} aria-label="Services Grid">
+        <div className="container">
+          <div className={styles.servicesGrid}>
+            {services.map((item) => {
+              const PlatformIcon = item.platformIcon;
+              return (
+                <article key={item.number} className={styles.serviceCard}>
+                  <div className={styles.cardHeader}>
+                    <div className={styles.cardIndexWrap}>
+                      <span className={styles.cardNum}>{item.number}</span>
+                      <span className={styles.cardCat}>{item.category}</span>
+                    </div>
+
+                    {/* Animated Social Platform Badge */}
+                    <div className={styles.animatedPlatformBadge} title={item.category}>
+                      <PlatformIcon size={16} />
+                    </div>
+                  </div>
+
+                  <h2 className={styles.cardTitle}>{item.title}</h2>
+                  <p className={styles.cardTagline}>{item.tagline}</p>
+                  <p className={styles.cardDesc}>{item.desc}</p>
+
+                  {/* Metric Box */}
+                  <div className={styles.metricPill}>
+                    <span className={styles.metricDot} />
+                    <strong>{item.metric}</strong>
+                  </div>
+
+                  {/* Quick Tags */}
+                  <div className={styles.tagsRow}>
+                    {item.tags.map((t) => (
+                      <span key={t} className={styles.tagPill}>
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Footer Link */}
+                  <div className={styles.cardFooter}>
+                    <Link href={item.linkHref} className={styles.cardLink}>
+                      <span>Explore Blueprint</span>
+                      <ArrowUpRight size={14} />
+                    </Link>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 3. 4-Step Sprint Workflow ─────────────────────────────── */}
+      <section className={styles.workflowSection} aria-label="Our Delivery Workflow">
         <div className="container">
           <div className={styles.sectionHeader}>
-            <p className={styles.eyebrow}>The Transco Operating System</p>
-            <h2 className={styles.sectionTitle}>
-              <span className={styles.lightWord}>How we engineer growth in</span>{' '}
-              <span className={styles.boldWord}>four structured sprints.</span>
-            </h2>
-            <p className={styles.sectionSub}>
-              A battle-tested production rhythm that eliminates delays and guarantees repeatable velocity.
-            </p>
+            <span className={styles.eyebrow}>The 4-Step Sprint</span>
+            <h2 className={styles.sectionTitle}>How we execute and scale.</h2>
           </div>
 
-          <div className={styles.sprintGrid}>
-            {sprintSteps.map((s, idx) => (
-              <motion.div
-                key={s.step}
-                className={styles.sprintCard}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-              >
-                <div className={styles.sprintTop}>
-                  <span className={styles.sprintNum} style={{ color: s.accent }}>
-                    {s.step}
-                  </span>
-                  <span className={styles.sprintPhase}>{s.phase}</span>
+          <div className={styles.workflowGrid}>
+            {workflowSteps.map((ws) => (
+              <div key={ws.step} className={styles.workflowCard}>
+                <div className={styles.stepTopRow}>
+                  <span className={styles.stepNum}>{ws.step}</span>
+                  <span className={styles.stepTime}>{ws.time}</span>
                 </div>
-                <h3 className={styles.sprintTitle}>{s.title}</h3>
-                <p className={styles.sprintDesc}>{s.desc}</p>
-                <div className={styles.sprintBottomLine} style={{ background: s.accent }} />
-              </motion.div>
+                <h3 className={styles.stepTitle}>{ws.title}</h3>
+                <p className={styles.stepDesc}>{ws.desc}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── 4. Enterprise Tech Stack & Tools ──────────────────────── */}
-      <section className={styles.techSection} aria-label="Tooling & Stack">
-        <div className="container">
-          <div className={styles.techCard}>
-            <div className={styles.techHeader}>
-              <div className={styles.techBadge}>
-                <Cpu size={14} color="#FF6A00" />
-                <span>Enterprise Technology Ecosystem</span>
-              </div>
-              <h2 className={styles.techTitle}>Powered by top-tier creative & analytics infrastructure</h2>
-              <p className={styles.techSub}>
-                We combine industry-leading media buying suites, cinema-grade editing pipelines, and first-party attribution software.
-              </p>
-            </div>
-
-            <div className={styles.techGrid}>
-              {techStack.map((tech) => (
-                <div key={tech.name} className={styles.techItem}>
-                  <span className={styles.techEmoji}>{tech.icon}</span>
-                  <div className={styles.techMeta}>
-                    <span className={styles.techName}>{tech.name}</span>
-                    <span className={styles.techCat}>{tech.category}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 5. Bottom Call to Action ───────────────────────────────── */}
-      <section className={styles.ctaSection} aria-label="Get Started">
+      {/* ── 4. Call to Action ─────────────────────────────────────── */}
+      <section className={styles.ctaSection} aria-label="Start Your Program">
         <div className="container">
           <div className={styles.ctaCard}>
-            <p className={styles.ctaEyebrow}>Ready to make waves?</p>
+            <span className={styles.ctaEyebrow}>Ready to grow?</span>
             <h2 className={styles.ctaTitle}>
-              Let&apos;s build a custom growth program for your brand.
+              Let&apos;s engineer your brand&apos;s next growth chapter.
             </h2>
             <p className={styles.ctaDesc}>
-              Whether you need high-velocity TikTok content or a complete brand overhaul, our team is ready.
+              Schedule a strategic consultation to map out the exact squad and channels for your business.
             </p>
             <div className={styles.ctaActions}>
               <Link href="/contact" className={styles.ctaPrimary}>
-                <span>Build Your Project Scope</span>
+                <span>Schedule a Strategic Call</span>
                 <ArrowUpRight size={16} />
               </Link>
               <Link href="/case-studies" className={styles.ctaSecondary}>

@@ -1,12 +1,7 @@
 'use client';
 
 /**
- * JourneySection.tsx
- * A compact, creative company timeline.
- *
- * Design: A single self-contained card with a heartbeat-style SVG arc
- * that visually embodies rise → dip → rise again, with 5 milestone dots.
- * CSS animation draws the line on scroll-enter. Simple, premium, small.
+ * JourneySection.tsx — Black Obsidian Heartbeat Growth Timeline Arc
  */
 
 import { useEffect, useRef, useState } from 'react';
@@ -29,14 +24,14 @@ const milestones = [
     year: '2022',
     title: 'The Crisis',
     note: "Sri Lanka's economic storm hit. Brands stepped back. We chose resilience.",
-    color: '#6b7280',
+    color: '#71717a',
     isDip: true,
   },
   {
     year: '2023',
     title: 'Global Pivot',
     note: 'Expanded to UK, Australia, UAE & Europe. Launched 3 specialized studios.',
-    color: '#3B82F6',
+    color: '#FF6A00',
   },
   {
     year: 'Today',
@@ -47,9 +42,6 @@ const milestones = [
   },
 ];
 
-// Heartbeat-style SVG arc — rise→dip→soar
-// ViewBox: 0 0 800 140
-// The path traces the emotional arc of the company journey
 const ARC_PATH =
   'M 30,100 C 80,100 110,40 160,40 C 210,40 220,60 250,80 C 285,105 295,125 340,125 C 385,125 395,35 450,18 C 500,3 540,10 590,10 C 640,10 670,18 770,18';
 
@@ -63,7 +55,6 @@ export default function JourneySection() {
     const el = sectionRef.current;
     if (!el) return;
 
-    // Set up the dashoffset on the path upfront
     const path = pathRef.current;
     if (path) {
       const len = path.getTotalLength();
@@ -84,14 +75,12 @@ export default function JourneySection() {
     return () => observer.disconnect();
   }, []);
 
-  // Dot positions along the path (pre-calculated for the arc above)
-  // x-position spread evenly, y matched to the SVG curve
   const dotPositions = [
-    { x: 160, y: 40 },   // 2020 — peak
+    { x: 160, y: 40 },   // 2020
     { x: 250, y: 80 },   // 2021
-    { x: 340, y: 125 },  // 2022 — dip
-    { x: 450, y: 18 },   // 2023 — soar
-    { x: 680, y: 18 },   // Today — top
+    { x: 340, y: 125 },  // 2022
+    { x: 450, y: 18 },   // 2023
+    { x: 680, y: 18 },   // Today
   ];
 
   return (
@@ -106,9 +95,9 @@ export default function JourneySection() {
           </h2>
         </div>
 
-        {/* The Arc Card */}
+        {/* The Black Arc Card */}
         <div className={styles.arcCard}>
-          {/* SVG Arc — the entire story in one visual */}
+          {/* SVG Arc */}
           <div className={styles.svgWrapper}>
             <svg
               viewBox="0 0 800 140"
@@ -119,10 +108,10 @@ export default function JourneySection() {
             >
               <defs>
                 <linearGradient id="arcGrad" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%"   stopColor="#FF6A00" />
-                  <stop offset="42%"  stopColor="#6b7280" />
-                  <stop offset="55%"  stopColor="#3B82F6" />
-                  <stop offset="100%" stopColor="#FFD166" />
+                  <stop offset="0%" stopColor="#FF6A00" />
+                  <stop offset="42%" stopColor="#71717a" />
+                  <stop offset="65%" stopColor="#FF6A00" />
+                  <stop offset="100%" stopColor="#ffffff" />
                 </linearGradient>
                 <filter id="arcGlow">
                   <feGaussianBlur stdDeviation="3" result="blur" />
@@ -133,15 +122,15 @@ export default function JourneySection() {
                 </filter>
               </defs>
 
-              {/* Ghost track — always visible, anchors layout */}
+              {/* Ghost track */}
               <path
                 d={ARC_PATH}
-                stroke="rgba(255,255,255,0.07)"
-                strokeWidth="2"
+                stroke="rgba(255, 255, 255, 0.08)"
+                strokeWidth="2.5"
                 strokeLinecap="round"
               />
 
-              {/* Animated foreground arc */}
+              {/* Animated foreground arc with glow */}
               <path
                 ref={pathRef}
                 d={ARC_PATH}
@@ -168,7 +157,7 @@ export default function JourneySection() {
                   <circle
                     cx={pos.x}
                     cy={pos.y}
-                    r="10"
+                    r="14"
                     fill="transparent"
                     stroke="transparent"
                     style={{ cursor: 'pointer' }}
@@ -176,23 +165,23 @@ export default function JourneySection() {
                   <circle
                     cx={pos.x}
                     cy={pos.y}
-                    r={activeIdx === i ? 6 : 4.5}
+                    r={activeIdx === i ? 6.5 : 4.5}
                     fill={milestones[i]?.color ?? '#FF6A00'}
-                    stroke="#0a0a0f"
-                    strokeWidth="2"
-                    style={{ transition: 'r 0.2s ease' }}
+                    stroke="#09090d"
+                    strokeWidth="2.5"
+                    style={{ transition: 'all 0.2s ease' }}
                   />
                 </g>
               ))}
             </svg>
           </div>
 
-          {/* Milestone Row — 5 columns under the arc */}
+          {/* Milestone Row */}
           <div className={styles.milestoneRow}>
             {milestones.map((m, i) => (
               <div
                 key={m.year}
-                className={`${styles.milestone} ${activeIdx === i ? styles.milestoneHovered : ''} ${m.isDip ? styles.milestoneDip : ''}`}
+                className={`${styles.milestone} ${activeIdx === i ? styles.milestoneHovered : ''}`}
                 onMouseEnter={() => setActiveIdx(i)}
                 onMouseLeave={() => setActiveIdx(null)}
               >

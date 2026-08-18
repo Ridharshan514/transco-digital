@@ -9,6 +9,9 @@ import styles from './Hero.module.css';
 const Hero3DBackground = dynamic(() => import('./Hero3DBackground'), { ssr: false });
 
 export default function Hero() {
+  const currentYear = new Date().getFullYear();
+  const yearsActive = currentYear - 2020;
+
   return (
     <section className={styles.hero} id="home" aria-label="Transco Digital — Hero">
       {/* LEFT — text content */}
@@ -40,7 +43,7 @@ export default function Hero() {
           <Link href="/contact" className={styles.primaryBtn} id="hero-cta">
             Schedule a Call
           </Link>
-          <Link href="/services" className={styles.secondaryBtn}>
+          <Link href="/case-studies" className={styles.secondaryBtn}>
             See our work
           </Link>
         </div>
@@ -57,7 +60,7 @@ export default function Hero() {
           </div>
           <div className={styles.trustDivider} />
           <div className={styles.trustItem}>
-            <span className={styles.trustNum}>6+</span>
+            <span className={styles.trustNum}>{yearsActive}+</span>
             <span className={styles.trustLabel}>Years of growth</span>
           </div>
         </div>

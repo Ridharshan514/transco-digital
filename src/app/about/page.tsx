@@ -4,15 +4,10 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   ArrowUpRight,
   Sparkles,
-  Video,
-  PlaySquare,
-  Layers,
-  ChevronRight,
-  Quote,
   Sprout,
 } from 'lucide-react';
 import JourneySection from './JourneySection';
@@ -31,97 +26,7 @@ const stats = [
   { value: 3, suffix: 'M+', label: 'Views Delivered', detail: 'Short-form & creator ecosystem' },
 ];
 
-// ── Three Specialized Studios ────────────────────────────────────────────────
-const specializedStudios = [
-  {
-    icon: Video,
-    name: 'TikTok Makers',
-    tagline: 'Short-Form Viral Dominance',
-    description:
-      'Engineered specifically to satisfy the exploding demand for high-velocity, high-retention content across TikTok, Instagram Reels, and YouTube Shorts.',
-    features: ['Hook Architecture', 'Trend-Jacking Frameworks', 'Batch Production Studio', 'Multi-Platform Distribution'],
-    badge: 'Short-Form Studio',
-    accentColor: '#FF6A00',
-  },
-  {
-    icon: PlaySquare,
-    name: 'YouTuber Automation',
-    tagline: 'Creator Economy Infrastructure',
-    description:
-      'End-to-end production automation for YouTube creators and brands — from high-CTR thumbnail design and retention editing to channel monetization and SEO.',
-    features: ['High-CTR Thumbnails', 'Retention Curve Editing', 'Scripting & Research', 'Channel Monetization'],
-    badge: 'Creator Automation',
-    accentColor: '#3B82F6',
-  },
-  {
-    icon: Layers,
-    name: 'Premium Social Content (PSC)',
-    tagline: 'All-In-One Brand Growth Engine',
-    description:
-      'Bespoke social media marketing, high-end visual asset creation, and cross-channel paid growth strategies — delivered conveniently in one unified partner.',
-    features: ['Visual Brand Identity', 'Content Calendar Management', 'Paid Ad Creative & Media', 'Full-Funnel Strategy'],
-    badge: 'All-In-One Growth',
-    accentColor: '#10B981',
-  },
-];
-
-// ── Real Leadership Team from Transco Digital ─────────────────────────────────
-const leadershipTeam = [
-  {
-    id: 'charitha',
-    name: 'Charitha Perera',
-    role: 'Director',
-    department: 'Executive Board',
-    quote: 'Sustainable brand growth requires an uncompromising commitment to creative excellence and long-term vision.',
-    bio: 'Guiding institutional strategy, corporate governance, and forging strategic enterprise partnerships across the Transco Digital network.',
-    initials: 'CP',
-    color: '#FF6A00',
-  },
-  {
-    id: 'dineth',
-    name: 'Dineth Silva',
-    role: 'Director / CEO',
-    department: 'Executive Leadership',
-    quote: 'We founded Transco Digital to bridge the gap between creative storytelling and real, measurable commercial impact.',
-    bio: 'Spearheading overall business vision, international market expansion, and steering Transco Digital’s mission to make waves globally.',
-    initials: 'DS',
-    color: '#3B82F6',
-  },
-  {
-    id: 'maas',
-    name: 'Maas Shamil',
-    role: 'Chief Operating Officer',
-    department: 'Operations & Strategy',
-    quote: 'Precision execution and streamlined workflows are what turn great marketing strategies into consistent client revenue.',
-    bio: 'Overseeing agency-wide operations, client delivery infrastructure, resource allocation, and operational excellence across global campaigns.',
-    initials: 'MS',
-    color: '#8B5CF6',
-  },
-  {
-    id: 'srinath',
-    name: 'Srinath Maduranga',
-    role: 'Head of Creative',
-    department: 'Creative & Design',
-    quote: 'Great creative doesn’t just grab attention — it evokes emotion and inspires action across every screen.',
-    bio: 'Directing creative philosophy, visual standards, and cutting-edge multimedia production across high-impact international brand campaigns.',
-    initials: 'SM',
-    color: '#10B981',
-  },
-  {
-    id: 'ashen',
-    name: 'Ashen Hettiarachchi',
-    role: 'Manager - Creative',
-    department: 'Creative Production',
-    quote: 'Staying ahead of digital trends allows us to deliver content that resonates with modern audiences instantly.',
-    bio: 'Managing day-to-day design pipelines, motion graphics execution, and elevating creative quality across TikTok Makers & PSC studios.',
-    initials: 'AH',
-    color: '#F59E0B',
-  },
-];
-
 export default function AboutPage() {
-  const [selectedLeader, setSelectedLeader] = useState(leadershipTeam[1]); // Dineth Silva default
-
   return (
     <main className={styles.page}>
       {/* ── 1. Cinematic 3D Hero ─────────────────────────────────── */}
@@ -216,7 +121,6 @@ export default function AboutPage() {
       <LeadershipSection />
 
       {/* ── 6. Full-Width Obsidian Call to Action ──────────────────── */}
-
       <section className={styles.ctaSection} aria-label="Start Your Journey">
         <div className="container">
           <motion.div
@@ -228,7 +132,7 @@ export default function AboutPage() {
           >
             <div className={styles.ctaBadge}>
               <Sparkles size={14} color="#FF6A00" />
-              <span>Journey of Dreaming Big 2.0</span>
+              <span>Partner with Transco Digital</span>
             </div>
 
             <h2 className={styles.ctaTitle}>

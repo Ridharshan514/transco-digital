@@ -1,7 +1,6 @@
 import Hero from '@/components/Hero/Hero';
 import LogoStrip from '@/components/LogoStrip/LogoStrip';
 import Expertise from '@/components/Expertise/Expertise';
-import ParallaxTikTok from '@/components/ParallaxTikTok/ParallaxTikTok';
 import Brands from '@/components/Brands/Brands';
 import TrackRecord from '@/components/TrackRecord/TrackRecord';
 import Testimonials from '@/components/Testimonials/Testimonials';
@@ -14,7 +13,6 @@ export default function Home() {
       <Hero />
       <LogoStrip />
       <Expertise />
-      <ParallaxTikTok />
       <Brands />
       <TrackRecord />
       <Testimonials />

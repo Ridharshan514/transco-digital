@@ -1,36 +1,47 @@
-/* ═══════════════════════════════════════════════════════
-   LeadershipSection.module.css
-   Spotlight layout: featured photo left + roster grid right
-   ═══════════════════════════════════════════════════════ */
+/* ═════════════════════════════════════════════════════════════════════════════
+   LeadershipSection.module.css — Minimal Editorial Expanding Monograph
+   Clean White & Black Aesthetic with Kinetic Interaction
+   ═════════════════════════════════════════════════════════════════════════════ */
 
 .section {
-  padding: 90px 0 100px;
+  padding: 90px 0 110px;
   background: #ffffff;
+  border-bottom: 1px solid #e4e4e7;
+  overflow: hidden;
 }
 
 /* ── Header ──────────────────────────────────────────── */
 .header {
-  max-width: 680px;
-  margin: 0 auto 52px;
   text-align: center;
+  max-width: 660px;
+  margin: 0 auto 52px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
 
 .eyebrow {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  font-weight: 800;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #FF6A00;
+  color: #71717a;
+}
+
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #FF6A00;
 }
 
 .title {
-  font-size: clamp(2rem, 3.5vw, 3rem);
-  letter-spacing: -0.035em;
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  letter-spacing: -0.04em;
   line-height: 1.1;
   margin: 0;
 }
@@ -41,362 +52,336 @@
 }
 
 .boldWord {
-  font-weight: 800;
+  font-weight: 900;
   color: #18181b;
 }
 
-/* ── Main Grid ───────────────────────────────────────── */
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 24px;
-  align-items: start;
-  max-width: 1160px;
+/* ── Expanding Editorial Pillars Track ───────────────── */
+.pillarsTrack {
+  display: flex;
+  align-items: stretch;
+  gap: 14px;
+  height: 540px;
+  max-width: 1240px;
   margin: 0 auto;
+  padding: 0 10px;
 }
 
-/* ── Featured Column ─────────────────────────────────── */
-.featuredCol {
-  position: sticky;
-  top: 80px;
-}
-
-.featuredCard {
+/* ── Individual Pillar ───────────────────────────────── */
+.pillar {
   position: relative;
-  border-radius: 24px;
+  flex: 0.85;
+  border-radius: 26px;
   overflow: hidden;
-  background: #18181b;
-  /* Fixed aspect ratio — portrait */
-  aspect-ratio: 3 / 4;
+  cursor: pointer;
+  background: #09090d;
+  border: 1.5px solid #e4e4e7;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between;
+  padding: 24px;
+  transition: flex 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+  min-width: 80px;
+  will-change: flex;
 }
 
-/* Photo layer */
-.featuredImgWrap {
+.pillar:hover,
+.pillarActive {
+  flex: 2.5;
+  border-color: #18181b;
+  box-shadow: 0 24px 50px -15px rgba(0, 0, 0, 0.18);
+}
+
+/* Photo Wrap */
+.photoWrap {
   position: absolute;
   inset: 0;
+  z-index: 0;
 }
 
-.featuredImg {
+.portraitPhoto {
   object-fit: cover;
-  object-position: center top;
-  transition: transform 0.6s ease;
+  object-position: center 18%;
+  filter: grayscale(100%) brightness(0.85) contrast(1.1);
+  transition: filter 0.6s ease, transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.featuredCard:hover .featuredImg {
+.pillar:hover .portraitPhoto,
+.pillarActive .portraitPhoto {
+  filter: grayscale(0%) brightness(0.95) contrast(1.05);
   transform: scale(1.04);
 }
 
-/* Dark gradient overlay — bottom 60% */
-.featuredOverlay {
+.photoGradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(9, 9, 13, 0.96) 0%,
-    rgba(9, 9, 13, 0.65) 45%,
-    rgba(9, 9, 13, 0.1) 75%,
-    transparent 100%
-  );
+  background: linear-gradient(180deg, rgba(9, 9, 13, 0.2) 0%, rgba(9, 9, 13, 0.4) 40%, rgba(9, 9, 13, 0.95) 100%);
+  transition: opacity 0.4s ease;
 }
 
-/* Dept badge — top-left */
-.featuredDeptBadge {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 5px 12px;
-  border-radius: 9999px;
-  border: 1px solid;
-  backdrop-filter: blur(8px);
-}
-
-/* Bottom text block */
-.featuredInfo {
+/* Top Bar: Index number */
+.topBar {
   position: relative;
   z-index: 2;
-  padding: 28px 28px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.indexTag {
+  font-size: 11px;
+  font-weight: 800;
+  font-family: monospace;
+  color: #ffffff;
+  background: rgba(9, 9, 13, 0.7);
+  backdrop-filter: blur(8px);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Vertical Name (Visible when idle) */
+.verticalMeta {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-}
-
-.featuredName {
-  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
-  font-weight: 800;
-  color: #ffffff;
-  letter-spacing: -0.03em;
-  margin: 0;
-  line-height: 1.1;
-}
-
-.featuredRole {
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  margin: 0;
-}
-
-.featuredBio {
-  font-size: 13.5px;
-  color: rgba(255, 255, 255, 0.62);
-  line-height: 1.65;
-  margin: 6px 0 0;
-  max-width: 400px;
-}
-
-/* Focus tags */
-.focusTags {
-  display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   gap: 6px;
-  margin-top: 4px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  white-space: nowrap;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
 }
 
-.focusTag {
+.vName {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+}
+
+.vRole {
   font-size: 11px;
   font-weight: 600;
-  padding: 4px 10px;
-  background: rgba(255, 255, 255, 0.09);
-  color: rgba(255, 255, 255, 0.65);
-  border-radius: 9999px;
-  letter-spacing: 0.02em;
+  color: #FF6A00;
+  letter-spacing: 0.06em;
+}
+
+.pillarActive .verticalMeta,
+.pillar:hover .verticalMeta {
+  opacity: 0;
+  transform: translateX(-50%) translateY(10px);
+}
+
+/* Expanded Content (Visible when active/hovered) */
+.expandedMeta {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
+  pointer-events: none;
+  max-width: 380px;
+}
+
+.pillarActive .expandedMeta,
+.pillar:hover .expandedMeta {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.focusBadge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #FF6A00;
+  margin-bottom: 6px;
+}
+
+.leaderName {
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  line-height: 1.1;
+  margin: 0 0 2px;
+}
+
+.leaderRole {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #a1a1aa;
+  margin: 0 0 10px;
+}
+
+.leaderTagline {
+  font-size: 13px;
+  color: #d4d4d8;
+  line-height: 1.5;
+  margin: 0 0 16px;
+}
+
+.bottomLink {
+  display: flex;
+  align-items: center;
 }
 
 .connectBtn {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  font-size: 13px;
-  font-weight: 700;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #ffffff;
   text-decoration: none;
-  margin-top: 10px;
-  transition: gap 0.2s ease, opacity 0.2s ease;
-  letter-spacing: 0.01em;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
 }
 
 .connectBtn:hover {
-  gap: 8px;
-  opacity: 0.8;
-}
-
-/* ── Roster Column ───────────────────────────────────── */
-.rosterCol {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.rosterLabel {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #a1a1aa;
-  margin: 0 0 12px;
-}
-
-.rosterList {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-/* Individual roster card */
-.rosterCard {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 14px 16px;
-  border-radius: 18px;
-  border: 1px solid transparent;
-  background: transparent;
-  cursor: pointer;
-  text-align: left;
-  width: 100%;
-  transition: background 0.2s ease, border-color 0.2s ease;
-  overflow: hidden;
-}
-
-.rosterCard:hover {
-  background: #f4f4f5;
-}
-
-.rosterCardActive {
-  background: #fafafa;
-  border-color: #e4e4e7;
-}
-
-/* Active animated left border */
-.activeBar {
-  position: absolute;
-  left: 0;
-  top: 12px;
-  bottom: 12px;
-  width: 3px;
-  border-radius: 9999px;
-}
-
-/* Thumbnail photo */
-.rosterThumb {
-  position: relative;
-  width: 56px;
-  height: 64px;
-  flex-shrink: 0;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #e4e4e7;
-  outline-offset: 2px;
-  transition: outline 0.2s ease;
-}
-
-.rosterThumbImg {
-  object-fit: cover;
-  object-position: center top;
-}
-
-.rosterMeta {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  flex: 1;
-  min-width: 0;
-}
-
-.rosterName {
-  font-size: 15px;
-  font-weight: 700;
-  color: #18181b;
-  letter-spacing: -0.015em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.rosterRole {
-  font-size: 12.5px;
-  color: #71717a;
-  font-weight: 500;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  transition: color 0.25s ease;
-}
-
-/* ── CTA Card ────────────────────────────────────────── */
-.ctaCard {
-  margin-top: 20px;
-  padding: 22px 20px;
-  background: #09090d;
-  border-radius: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.ctaCardText {
-  font-size: 14px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.65);
-  margin: 0;
-  line-height: 1.4;
-}
-
-.ctaCardBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  font-weight: 700;
-  color: #FF6A00;
-  text-decoration: none;
-  white-space: nowrap;
-  flex-shrink: 0;
-  transition: gap 0.2s ease;
-}
-
-.ctaCardBtn:hover {
+  background: #FF6A00;
+  border-color: #FF6A00;
   gap: 9px;
 }
 
-/* ── Responsive ──────────────────────────────────────── */
-@media (max-width: 1024px) {
-  .grid {
-    grid-template-columns: 1fr 360px;
-  }
+/* Bottom Glow Accent */
+.bottomAccent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #FF6A00;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-@media (max-width: 768px) {
-  .section {
-    padding: 60px 0 70px;
+.pillarActive .bottomAccent,
+.pillar:hover .bottomAccent {
+  opacity: 1;
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .pillarsTrack {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: auto;
+    gap: 12px;
+    padding: 0;
   }
 
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 28px;
+  .pillar {
+    flex: unset !important;
+    min-height: 260px;
+    height: 260px;
+    width: 100%;
+    border-radius: 22px;
+    padding: 16px 14px;
   }
 
-  .featuredCol {
-    position: static;
+  /* ── 01. Dineth Silva: Big Featured Spotlight on First Line ── */
+  .pillar:first-child {
+    grid-column: 1 / -1;
+    min-height: 320px;
+    height: 320px;
+    padding: 24px 20px;
   }
 
-  .featuredCard {
-    aspect-ratio: 3 / 3.5;
+  .pillar:first-child .leaderName {
+    font-size: 1.45rem;
   }
 
-  .rosterList {
-    /* Horizontal scroll on mobile */
-    flex-direction: row;
-    overflow-x: auto;
-    padding-bottom: 8px;
-    gap: 8px;
-    scrollbar-width: none;
+  .pillar:first-child .leaderRole {
+    font-size: 12.5px;
+    margin-bottom: 6px;
   }
 
-  .rosterList::-webkit-scrollbar {
+  .pillar:first-child .leaderTagline {
+    font-size: 12.5px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    -webkit-line-clamp: 3;
+    max-width: 480px;
+  }
+
+  .pillar:first-child .connectBtn {
+    font-size: 11.5px;
+    padding: 7px 16px;
+  }
+
+  /* ── 02–05. 2x2 Grid Below ── */
+  .pillar:not(:first-child) {
+    grid-column: span 1;
+  }
+
+  .verticalMeta {
     display: none;
   }
 
-  .rosterCard {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    min-width: 120px;
-    padding: 14px 12px;
-    gap: 8px;
+  .expandedMeta {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
   }
 
-  .rosterThumb {
-    width: 60px;
-    height: 70px;
+  .leaderName {
+    font-size: 14.5px;
   }
 
-  .rosterName {
-    font-size: 13px;
-    white-space: normal;
-  }
-
-  .rosterRole {
+  .leaderRole {
     font-size: 11px;
-    white-space: normal;
+    margin-bottom: 4px;
   }
 
-  .activeBar {
-    position: absolute;
-    left: 12px;
-    right: 12px;
-    top: auto;
-    bottom: 0;
-    width: auto;
-    height: 3px;
+  .leaderTagline {
+    font-size: 11px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .connectBtn {
+    font-size: 10px;
+    padding: 5px 12px;
+  }
+
+  .portraitPhoto {
+    filter: grayscale(0%) brightness(0.95);
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 50px 0 60px;
+  }
+  .header {
+    margin-bottom: 30px;
+  }
+  .title {
+    font-size: 1.8rem;
+  }
+  .pillar:first-child {
+    min-height: 300px;
+    height: 300px;
   }
 }

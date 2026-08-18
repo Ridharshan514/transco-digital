@@ -1,27 +1,31 @@
 /* ═══════════════════════════════════════════════════════════════
-   TESTIMONIALS — IgniteAgency.com Scroll-Driven Stacked Cards
+   TESTIMONIALS — Adaptive Client Stories Component
+   Desktop: 340vh Scroll-Driven Stacked Card Peel Effect
+   Mobile: Compact 3D Stacked Card Deck with Peeling Physics (0 Gap)
    ═══════════════════════════════════════════════════════════════ */
 
+/* ── DESKTOP SCROLL-DRIVEN PEEL EFFECT ─────────────────────── */
 .scrollTrack {
   position: relative;
-  height: 280vh;
+  height: 340vh;
   background: #fafafa;
 }
 
 .stickyContainer {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
-  height: 100svh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 100px 24px 36px;
+  padding: 84px 24px 36px;
   overflow: hidden;
   box-sizing: border-box;
 }
 
-/* Giant background watermark (Ignite Agency style) */
+/* Giant background watermark */
 .watermarkWrap {
   position: absolute;
   top: 50%;
@@ -33,10 +37,10 @@
 }
 
 .watermarkText {
-  font-size: clamp(6rem, 18vw, 18rem);
+  font-size: clamp(5rem, 16vw, 15rem);
   font-weight: 900;
   letter-spacing: -0.05em;
-  color: rgba(0, 0, 0, 0.035);
+  color: rgba(0, 0, 0, 0.03);
   text-transform: lowercase;
   white-space: nowrap;
   line-height: 1;
@@ -49,21 +53,21 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   max-width: 600px;
 }
 
 .eyebrow {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #ff6a00;
+  color: #FF6A00;
   margin: 0;
 }
 
 .heading {
-  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
   letter-spacing: -0.03em;
   line-height: 1.15;
   margin: 0;
@@ -71,7 +75,7 @@
 
 .lightText {
   font-weight: 300;
-  color: #71717a;
+  color: #a1a1aa;
 }
 
 .boldText {
@@ -79,12 +83,20 @@
   color: #18181b;
 }
 
+.scrollHint {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #a1a1aa;
+  margin: 2px 0 0;
+}
+
 /* Stack of Cards in Center */
 .cardsStack {
   position: relative;
   width: 100%;
   max-width: 580px;
-  height: 330px;
+  height: 320px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -96,48 +108,62 @@
   position: absolute;
   width: 100%;
   background: #ffffff;
-  border-radius: 24px;
+  border-radius: 26px;
   padding: 32px 36px;
-  border: 1px solid #e4e4e7;
-  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  border: 1.5px solid #e4e4e7;
+  box-shadow:
+    0 20px 45px -12px rgba(0, 0, 0, 0.08),
+    0 4px 12px -2px rgba(0, 0, 0, 0.03);
   box-sizing: border-box;
-  transform-origin: center bottom;
+  transform-origin: center top;
   will-change: transform, opacity;
 }
 
+.card1 {
+  border-color: #18181b;
+}
+
+.card2 {
+  border-color: #d4d4d8;
+}
+
+.card3 {
+  border-color: #e4e4e7;
+}
+
+/* Card Header */
 .cardHeader {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
 .avatar {
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   border-radius: 12px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 15px;
   flex-shrink: 0;
 }
 
 .companyName {
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 800;
   color: #18181b;
-  margin: 0;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  margin: 0 0 2px;
 }
 
 .companyBadge {
-  font-size: 11px;
-  font-weight: 500;
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 600;
   color: #71717a;
 }
 
@@ -147,27 +173,30 @@
   gap: 3px;
 }
 
+/* Quote */
 .quoteText {
-  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  font-size: clamp(0.95rem, 1.3vw, 1.15rem);
   line-height: 1.6;
-  color: #27272a;
-  margin: 0;
+  color: #3f3f46;
+  margin: 0 0 18px;
+  font-weight: 450;
 }
 
 .highlight {
-  font-weight: 700;
   color: #18181b;
-  background: linear-gradient(120deg, rgba(255, 106, 0, 0.12) 0%, rgba(255, 106, 0, 0.04) 100%);
+  font-weight: 800;
+  background: rgba(255, 106, 0, 0.08);
   padding: 1px 4px;
   border-radius: 4px;
 }
 
+/* Author Row */
 .authorRow {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 14px;
   border-top: 1px solid #f4f4f5;
+  padding-top: 14px;
 }
 
 .authorInfo {
@@ -177,69 +206,198 @@
 
 .authorName {
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 800;
   color: #18181b;
 }
 
 .authorRole {
   font-size: 11px;
-  color: #71717a;
+  color: #a1a1aa;
 }
 
-/* Bottom Bar / Button */
+/* Bottom Bar */
 .bottomBar {
   position: relative;
   z-index: 2;
-  padding-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .reviewsBtn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 24px;
+  gap: 8px;
+  padding: 12px 26px;
   background: #18181b;
   color: #ffffff;
   border-radius: 9999px;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-size: 13px;
+  font-weight: 700;
   text-decoration: none;
-  transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+  transition: all 0.2s ease;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
 }
 
 .reviewsBtn:hover {
-  background: #ff6a00;
+  background: #FF6A00;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(255, 106, 0, 0.25);
+  box-shadow: 0 6px 20px rgba(255, 106, 0, 0.35);
 }
 
 .btnIcon {
   display: flex;
   align-items: center;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE 3D STACKED CARD DECK (COMPACT, 0 GAP, TIGHT SECTION)
+   ═══════════════════════════════════════════════════════════════ */
+.mobileSection {
+  background: #fafafa;
+  padding: 38px 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.mobileContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  max-width: 480px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.mobileTabsRow {
+  display: flex;
+  align-items: center;
   justify-content: center;
-  transition: transform 0.2s;
+  gap: 8px;
+  width: 100%;
 }
 
-.reviewsBtn:hover .btnIcon {
-  transform: translate(2px, -2px);
+.mobileTab {
+  padding: 7px 16px;
+  border-radius: 9999px;
+  background: #ffffff;
+  border: 1px solid #e4e4e7;
+  font-size: 12px;
+  font-weight: 700;
+  color: #71717a;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-/* Responsive */
+.mobileTabActive {
+  background: #18181b !important;
+  border-color: #18181b !important;
+  color: #ffffff !important;
+}
+
+/* 3D Stack Container */
+.mobileStackWrapper {
+  position: relative;
+  width: 100%;
+  height: 270px;
+  perspective: 1000px;
+}
+
+.mobileCard {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 22px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Background Card 2 (Bottom-most in stack) */
+.mobileCardBg2 {
+  transform: translateY(12px) scale(0.92) rotate(-2deg);
+  border: 1.5px solid #e4e4e7;
+  opacity: 0.5;
+  z-index: 1;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+/* Background Card 1 (Middle in stack) */
+.mobileCardBg1 {
+  transform: translateY(6px) scale(0.96) rotate(2deg);
+  border: 1.5px solid #d4d4d8;
+  opacity: 0.8;
+  z-index: 2;
+  pointer-events: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Active Top Card (Interactive, Swipeable & Peels away) */
+.mobileCardActive {
+  z-index: 3;
+  border: 1.5px solid #18181b;
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.04);
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.mobileCardActive:active {
+  cursor: grabbing;
+}
+
+.mobileNavArrows {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.navArrowBtn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #f4f4f5;
+  border: 1px solid #e4e4e7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #18181b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.navArrowBtn:hover {
+  background: #18181b;
+  color: #ffffff;
+  border-color: #18181b;
+}
+
 @media (max-width: 768px) {
-  .scrollTrack {
-    height: 240vh;
+  .mobileSection {
+    padding: 38px 16px;
   }
-  .card {
-    padding: 24px 22px;
-    gap: 14px;
+
+  .header {
+    gap: 4px;
   }
-  .cardsStack {
-    max-width: calc(100vw - 36px);
-    height: 310px;
+
+  .heading {
+    font-size: 1.6rem;
+    line-height: 1.15;
   }
-  .quoteText {
-    font-size: 0.95rem;
+
+  .reviewsBtn {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+    padding: 13px 24px;
+    font-size: 13px;
   }
 }

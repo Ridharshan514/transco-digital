@@ -22,11 +22,11 @@ const caseStudies = [
     slug: 'carys-ecclesall',
     client: 'Carys Ecclesall',
     stats: [
-      { value: 850000, display: '850K+', label: 'Total Views' },
-      { value: 10000, display: '10K+', label: 'New Subscribers' },
-      { value: 100, display: '100+', label: 'Videos Produced' },
+      { value: 400000, display: '400K+', label: 'Impressions' },
+      { value: 5, display: '5×', label: 'Keynote Inquiries' },
+      { value: 28, display: '28%', label: 'Engagement Surge' },
     ],
-    description: 'Systematic content planning and video production that built a loyal community around a personal brand from the ground up.',
+    description: 'Executive personal branding and high-end visual authority that drove 5× inbound enterprise keynote inquiries.',
   },
   {
     slug: 'bankhill-educare',

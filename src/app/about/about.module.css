@@ -5,18 +5,18 @@
 .page {
   width: 100%;
   background: #fafafa;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* ── 1. Cinematic 3D Hero Section ────────────────────────────── */
 .heroSection {
   position: relative;
-  min-height: 80vh;
+  min-height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 160px;
-  padding-bottom: 90px;
+  padding-top: 110px;
+  padding-bottom: 50px;
   background: #ffffff;
   border-bottom: 1px solid #e4e4e7;
   overflow: hidden;
@@ -26,20 +26,21 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 18px;
+  padding: 6px 16px;
   background: rgba(0, 0, 0, 0.04);
   border: 1px solid #e4e4e7;
   border-radius: 9999px;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.09em;
+  text-transform: uppercase;
   color: #71717a;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
 }
 
 .badgeDot {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: #ff6a00;
   animation: pulseDot 2s infinite;
@@ -51,12 +52,12 @@
 }
 
 .heroTitle {
-  font-size: clamp(3rem, 6vw, 5rem);
-  line-height: 1.02;
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  line-height: 1.05;
   letter-spacing: -0.04em;
   display: flex;
   flex-direction: column;
-  margin: 0 0 28px;
+  margin: 0 0 18px;
 }
 
 .heroTitleLight {
@@ -70,17 +71,17 @@
 }
 
 .heroSubtitle {
-  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
   color: #71717a;
-  line-height: 1.7;
-  max-width: 720px;
-  margin: 0 0 36px;
+  line-height: 1.65;
+  max-width: 660px;
+  margin: 0 0 28px;
 }
 
 .heroCtaRow {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
@@ -88,10 +89,10 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 14px 28px;
+  padding: 12px 24px;
   background: #18181b;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 600;
   letter-spacing: -0.01em;
   border-radius: 9999px;
@@ -109,10 +110,10 @@
 .heroSecondaryBtn {
   display: inline-flex;
   align-items: center;
-  padding: 14px 24px;
+  padding: 12px 20px;
   background: transparent;
   color: #18181b;
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 600;
   border: 1.5px solid #e4e4e7;
   border-radius: 9999px;
@@ -127,7 +128,7 @@
 
 /* ── 2. Animated Metrics Strip ───────────────────────────────── */
 .metricsSection {
-  padding: 56px 0;
+  padding: 40px 0;
   background: #ffffff;
   border-bottom: 1px solid #e4e4e7;
 }
@@ -135,25 +136,25 @@
 .metricsGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: 18px;
 }
 
 .metricCard {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 24px 24px 24px 28px;
+  gap: 4px;
+  padding: 18px 20px;
   background: #fafafa;
   border: 1px solid #e4e4e7;
-  border-radius: 20px;
+  border-radius: 18px;
   transition: all 0.3s ease;
 }
 
 .metricCard:hover {
   background: #ffffff;
   border-color: #18181b;
-  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.08);
 }
 
 .metricTopRow {
@@ -163,7 +164,7 @@
 }
 
 .metricValue {
-  font-size: clamp(2.4rem, 3.8vw, 3.2rem);
+  font-size: clamp(2rem, 3.2vw, 2.6rem);
   font-weight: 800;
   letter-spacing: -0.04em;
   color: #18181b;
@@ -176,36 +177,36 @@
 }
 
 .metricAccentGlow {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: #ff6a00;
 }
 
 .metricLabel {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   color: #18181b;
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 .metricDetail {
-  font-size: 12px;
+  font-size: 11.5px;
   color: #71717a;
 }
 
 /* ── Common Section Headers ──────────────────────────────────── */
 .sectionHeader {
   text-align: center;
-  max-width: 680px;
-  margin: 0 auto 52px;
+  max-width: 660px;
+  margin: 0 auto 36px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 .eyebrow {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -214,7 +215,7 @@
 }
 
 .sectionTitle {
-  font-size: clamp(2.2rem, 3.8vw, 3rem);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
   letter-spacing: -0.035em;
   line-height: 1.15;
   margin: 0;
@@ -231,669 +232,27 @@
 }
 
 .sectionSub {
-  font-size: 15px;
-  color: #71717a;
-  line-height: 1.65;
-  margin: 0;
-}
-
-/* ── 3. Visual Storytelling Timeline ─────────────────────────── */
-.storySection {
-  padding: 110px 0;
-}
-
-.timelineBarWrap {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 44px;
-}
-
-.timelineTrack {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-  width: 100%;
-  max-width: 900px;
-  background: #ffffff;
-  padding: 8px;
-  border-radius: 20px;
-  border: 1px solid #e4e4e7;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-}
-
-.timelineStepBtn {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 18px;
-  background: transparent;
-  border: none;
-  border-radius: 14px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  text-align: left;
-}
-
-.timelineStepBtn:hover {
-  background: rgba(0, 0, 0, 0.03);
-}
-
-.timelineStepActive {
-  background: #18181b !important;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-}
-
-.stepDot {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: #e4e4e7;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: background 0.25s ease;
-}
-
-.timelineStepActive .stepDot {
-  background: #ff6a00;
-}
-
-.stepDotInner {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #ffffff;
-}
-
-.stepInfo {
-  display: flex;
-  flex-direction: column;
-}
-
-.stepChapter {
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #71717a;
-}
-
-.timelineStepActive .stepChapter {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.stepYear {
   font-size: 14px;
-  font-weight: 700;
-  color: #18181b;
-}
-
-.timelineStepActive .stepYear {
-  color: #ffffff;
-}
-
-/* Active Chapter Story Card */
-.storyCard {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 48px;
-  background: #ffffff;
-  border: 1px solid #e4e4e7;
-  border-radius: 32px;
-  padding: 52px;
-  box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.08);
-  align-items: center;
-}
-
-.storyCardLeft {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.storyBadgeRow {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.storyChapterBadge {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #18181b;
-  background: #f4f4f5;
-  padding: 4px 12px;
-  border-radius: 9999px;
-}
-
-.storyTagBadge {
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.storyYearBadge {
-  font-size: 11px;
-  font-weight: 700;
-  color: #ff6a00;
-  background: rgba(255, 106, 0, 0.1);
-  padding: 4px 12px;
-  border-radius: 9999px;
-}
-
-.storyTitle {
-  font-size: clamp(1.8rem, 2.8vw, 2.4rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: #18181b;
-  margin: 0;
-  line-height: 1.15;
-}
-
-.storySubtitle {
-  font-size: 15px;
-  font-weight: 600;
   color: #71717a;
-  margin: 0;
-}
-
-.storyContent {
-  font-size: 15.5px;
-  color: #3f3f46;
-  line-height: 1.75;
-  margin: 0;
-}
-
-.storyHighlights {
-  padding-top: 14px;
-  border-top: 1px solid #f4f4f5;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.highlightsTitle {
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #71717a;
-  margin: 0;
-}
-
-.highlightsGrid {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.highlightRow {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #18181b;
-}
-
-.highlightIcon {
-  flex-shrink: 0;
-}
-
-.stageSwitcherRow {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding-top: 18px;
-  border-top: 1px solid #f4f4f5;
-  margin-top: 4px;
-}
-
-.stageSwitchBtn {
-  padding: 10px 18px;
-  background: #f4f4f5;
-  border: 1px solid #e4e4e7;
-  border-radius: 9999px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #18181b;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.stageSwitchBtn:hover:not(:disabled) {
-  background: #e4e4e7;
-  transform: translateY(-1px);
-}
-
-.stageSwitchBtn:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
-.stageSwitchBtnPrimary {
-  background: #18181b;
-  color: #ffffff;
-  border-color: #18181b;
-}
-
-.stageSwitchBtnPrimary:hover:not(:disabled) {
-  background: #ff6a00;
-  border-color: #ff6a00;
-  color: #ffffff;
-}
-
-.storyCardRight {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 480px;
-}
-
-.storyImageFrame {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 420px;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
-}
-
-.storyImg {
-  object-fit: cover;
-  transition: transform 0.6s ease;
-}
-
-.storyCard:hover .storyImg {
-  transform: scale(1.04);
-}
-
-.imageOverlayGradient {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.6) 100%);
-  pointer-events: none;
-}
-
-.floatingYearBadge {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  padding: 6px 16px;
-  background: rgba(24, 24, 27, 0.8);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 9999px;
-  font-size: 14px;
-  font-weight: 700;
-  color: #ffffff;
-}
-
-/* ── 4. Specialized Growth Studios ───────────────────────────── */
-.studiosSection {
-  padding: 100px 0;
-  background: #ffffff;
-  border-top: 1px solid #e4e4e7;
-  border-bottom: 1px solid #e4e4e7;
-}
-
-.studiosGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
-
-.studioCard {
-  background: #fafafa;
-  border: 1px solid #e4e4e7;
-  border-radius: 28px;
-  padding: 38px 34px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  transition: all 0.3s ease;
-}
-
-.studioCard:hover {
-  background: #ffffff;
-  border-color: #18181b;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
-}
-
-.studioCardHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.studioIcon {
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.studioBadge {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #71717a;
-  background: #ffffff;
-  border: 1px solid #e4e4e7;
-  padding: 4px 12px;
-  border-radius: 9999px;
-}
-
-.studioTitle {
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: #18181b;
-  margin: 0;
-}
-
-.studioTagline {
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-top: -6px;
-}
-
-.studioDesc {
-  font-size: 14.5px;
-  color: #71717a;
-  line-height: 1.65;
-  margin: 0;
-}
-
-.studioFeatures {
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-  padding-top: 16px;
-  border-top: 1px solid #e4e4e7;
-  margin-top: auto;
-}
-
-.studioFeatureItem {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 13.5px;
-  font-weight: 600;
-  color: #27272a;
-}
-
-.studioFeatureDot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.studioCta {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13.5px;
-  font-weight: 700;
-  color: #18181b;
-  text-decoration: none;
-  padding-top: 12px;
-  transition: gap 0.2s ease, color 0.2s ease;
-}
-
-.studioCta:hover {
-  color: #ff6a00;
-  gap: 10px;
-}
-
-/* ── 5. Leadership Spotlight Roster ──────────────────────────── */
-.teamSection {
-  padding: 110px 0;
-}
-
-.spotlightContainer {
-  display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 36px;
-  align-items: stretch;
-}
-
-.rosterList {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.rosterCard {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 16px 20px;
-  background: #ffffff;
-  border: 1px solid #e4e4e7;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  text-align: left;
-  width: 100%;
-}
-
-.rosterCard:hover {
-  border-color: #18181b;
-  transform: translateX(4px);
-}
-
-.rosterCardActive {
-  background: #18181b !important;
-  border-color: #18181b !important;
-  box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.15);
-}
-
-.rosterAvatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  font-weight: 800;
-  font-size: 15px;
-  flex-shrink: 0;
-}
-
-.rosterMeta {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.rosterName {
-  font-size: 16px;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  color: #18181b;
-  margin: 0;
-}
-
-.rosterCardActive .rosterName {
-  color: #ffffff;
-}
-
-.rosterRole {
-  font-size: 12px;
-  font-weight: 600;
-  color: #71717a;
-  margin: 0;
-}
-
-.rosterCardActive .rosterRole {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.rosterArrow {
-  margin-left: auto;
-  color: #a1a1aa;
-  transition: transform 0.2s ease;
-}
-
-.rosterCardActive .rosterArrow {
-  color: #ff6a00;
-  transform: translateX(3px);
-}
-
-/* Detailed Spotlight Card */
-.spotlightProfile {
-  width: 100%;
-}
-
-.spotlightCard {
-  height: 100%;
-  background: #ffffff;
-  border: 1px solid #e4e4e7;
-  border-radius: 28px;
-  padding: 44px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.08);
-  box-sizing: border-box;
-}
-
-.spotlightTop {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.spotlightAvatar {
-  width: 68px;
-  height: 68px;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  font-weight: 800;
-  font-size: 22px;
-  flex-shrink: 0;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
-}
-
-.spotlightMeta {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.spotlightDept {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #a1a1aa;
-}
-
-.spotlightName {
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: #18181b;
-  margin: 0;
-}
-
-.spotlightRole {
-  font-size: 14px;
-  font-weight: 700;
-  margin: 0;
-}
-
-.spotlightQuoteWrap {
-  background: #fafafa;
-  border: 1px solid #f4f4f5;
-  border-radius: 18px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.quoteIcon {
-  opacity: 0.8;
-}
-
-.spotlightQuote {
-  font-size: 16px;
-  font-weight: 600;
-  font-style: italic;
   line-height: 1.6;
-  color: #18181b;
   margin: 0;
 }
 
-.spotlightBio {
-  font-size: 14.5px;
-  color: #52525b;
-  line-height: 1.7;
-  margin: 0;
-}
-
-.spotlightFooter {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 16px;
-  border-top: 1px solid #f4f4f5;
-  margin-top: auto;
-}
-
-.agencyBadge {
-  font-size: 12px;
-  font-weight: 600;
-  color: #a1a1aa;
-}
-
-.spotlightContactBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13.5px;
-  font-weight: 700;
-  color: #18181b;
-  text-decoration: none;
-  transition: color 0.2s, gap 0.2s;
-}
-
-.spotlightContactBtn:hover {
-  color: #ff6a00;
-  gap: 9px;
-}
-
-/* ── 6. Full-Width Obsidian Call to Action ──────────────────── */
+/* ── 3. Final Obsidian Call to Action ───────────────────────── */
 .ctaSection {
-  padding-bottom: 110px;
+  padding: 60px 0 80px;
 }
 
 .ctaCard {
   background: #08080c;
-  border-radius: 36px;
-  padding: 72px 48px;
+  border-radius: 28px;
+  padding: 56px 36px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 22px;
-  box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.35);
+  gap: 18px;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -901,50 +260,50 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 18px;
+  padding: 6px 16px;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 9999px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .ctaTitle {
-  font-size: clamp(2.2rem, 4.2vw, 3.6rem);
+  font-size: clamp(1.8rem, 3.4vw, 2.8rem);
   font-weight: 800;
   letter-spacing: -0.04em;
   color: #ffffff;
-  line-height: 1.08;
-  max-width: 760px;
+  line-height: 1.1;
+  max-width: 720px;
   margin: 0;
 }
 
 .ctaSub {
-  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
   color: rgba(255, 255, 255, 0.6);
-  line-height: 1.65;
-  max-width: 620px;
+  line-height: 1.6;
+  max-width: 580px;
   margin: 0;
 }
 
 .ctaActions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 12px;
+  margin-top: 8px;
 }
 
 .ctaPrimaryBtn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 15px 32px;
+  padding: 13px 28px;
   background: #ffffff;
   color: #08080c;
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 700;
   letter-spacing: -0.01em;
   border-radius: 9999px;
@@ -961,10 +320,10 @@
 .ctaSecondaryBtn {
   display: inline-flex;
   align-items: center;
-  padding: 15px 28px;
+  padding: 13px 24px;
   background: transparent;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 600;
   border: 1.5px solid rgba(255, 255, 255, 0.25);
   border-radius: 9999px;
@@ -982,38 +341,65 @@
   .metricsGrid {
     grid-template-columns: repeat(2, 1fr);
   }
-  .timelineTrack {
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding-top: 90px;
+    padding-bottom: 36px;
+  }
+  .heroTitle {
+    font-size: clamp(2.2rem, 7vw, 2.8rem);
+  }
+  .heroCtaRow {
+    flex-direction: column;
+    width: 100%;
+  }
+  .heroPrimaryBtn,
+  .heroSecondaryBtn {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 20px;
+  }
+  .metricsSection {
+    padding: 24px 0;
+  }
+  .metricsGrid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
-  .storyCard {
-    grid-template-columns: 1fr;
-    padding: 36px 28px;
+  .metricCard {
+    padding: 14px 12px;
+    border-radius: 16px;
   }
-  .storyCardRight {
-    min-height: 300px;
+  .metricValue {
+    font-size: 1.7rem;
   }
-  .storyImageFrame {
-    min-height: 300px;
+  .metricLabel {
+    font-size: 12.5px;
   }
-  .studiosGrid {
-    grid-template-columns: 1fr;
+  .metricDetail {
+    font-size: 10.5px;
+    line-height: 1.35;
   }
-  .spotlightContainer {
-    grid-template-columns: 1fr;
+  .ctaCard {
+    padding: 36px 18px;
+    border-radius: 22px;
+  }
+  .ctaActions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .ctaPrimaryBtn,
+  .ctaSecondaryBtn {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 20px;
   }
 }
 
-@media (max-width: 640px) {
-  .heroSection {
-    padding-top: 130px;
-  }
+@media (max-width: 380px) {
   .metricsGrid {
     grid-template-columns: 1fr;
-  }
-  .timelineTrack {
-    grid-template-columns: 1fr;
-  }
-  .ctaCard {
-    padding: 52px 24px;
   }
 }

@@ -5,9 +5,9 @@
 .inner {
   display: grid;
   grid-template-columns: 1fr 1.3fr;
-  gap: var(--space-16);
+  gap: 36px;
   align-items: start;
-  padding: var(--space-12) var(--space-10);
+  padding: 36px 32px;
   background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card-lg);
@@ -31,7 +31,7 @@
 .left {
   display: flex;
   flex-direction: column;
-  gap: var(--space-8);
+  gap: 24px;
 }
 
 .headline {
@@ -44,7 +44,7 @@
 .subtext {
   font-size: var(--text-base);
   color: var(--color-muted);
-  line-height: 1.7;
+  line-height: 1.65;
   max-width: 360px;
 }
 
@@ -52,21 +52,21 @@
 .details {
   display: flex;
   flex-direction: column;
-  gap: var(--space-5);
+  gap: 14px;
 }
 
 .detailItem {
   display: flex;
   align-items: flex-start;
-  gap: var(--space-4);
+  gap: 12px;
 }
 
 .detailIcon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
@@ -81,7 +81,7 @@
 }
 
 .detailLabel {
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -89,7 +89,7 @@
 }
 
 .detailValue {
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 500;
   color: var(--color-text);
   text-decoration: none;
@@ -101,7 +101,7 @@
 }
 
 .detailValuePlain {
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 500;
   color: var(--color-muted);
 }
@@ -110,11 +110,11 @@
 .emailCta {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: 12px 20px;
+  gap: 8px;
+  padding: 11px 18px;
   background: var(--color-text);
   color: white;
-  font-size: 13.5px;
+  font-size: 13px;
   font-weight: 600;
   border-radius: var(--radius-pill);
   text-decoration: none;
@@ -133,15 +133,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   background: rgba(255, 255, 255, 0.15);
   border-radius: 50%;
 }
 
 /* ── Right panel: form ── */
 .right {
-  padding: var(--space-8);
+  padding: 24px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
@@ -150,23 +150,23 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: var(--space-5);
+  gap: 16px;
 }
 
 .formRow {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-4);
+  gap: 12px;
 }
 
 .field {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: 6px;
 }
 
 .label {
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--color-muted);
@@ -176,7 +176,7 @@
 .select,
 .textarea {
   width: 100%;
-  padding: 11px 16px;
+  padding: 10px 14px;
   background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
@@ -206,13 +206,13 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B6B6B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 14px center;
-  padding-right: 40px;
+  padding-right: 36px;
   cursor: pointer;
 }
 
 .textarea {
   resize: vertical;
-  min-height: 120px;
+  min-height: 100px;
   line-height: 1.6;
 }
 
@@ -221,11 +221,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-2);
-  padding: 14px 28px;
+  gap: 8px;
+  padding: 13px 24px;
   background: var(--color-text);
   color: white;
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 600;
   letter-spacing: -0.01em;
   border-radius: var(--radius-pill);
@@ -233,7 +233,6 @@
   cursor: pointer;
   transition: opacity var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
   width: 100%;
-  margin-top: var(--space-2);
 }
 
 .submitBtn:hover:not(:disabled) {
@@ -253,8 +252,8 @@
 
 .spinner {
   display: inline-block;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-top-color: white;
   border-radius: 50%;
@@ -266,7 +265,7 @@
 }
 
 .formNote {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--color-subtle);
   text-align: center;
 }
@@ -277,45 +276,45 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--space-4);
-  padding: var(--space-12) var(--space-8);
+  gap: 14px;
+  padding: 32px 20px;
   text-align: center;
-  min-height: 300px;
+  min-height: 260px;
 }
 
 .successIcon {
   color: #22c55e;
-  padding: var(--space-4);
+  padding: 14px;
   background: rgba(34, 197, 94, 0.08);
   border-radius: 50%;
 }
 
 .successTitle {
-  font-size: var(--text-xl);
+  font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: -0.03em;
   color: var(--color-text);
 }
 
 .successText {
-  font-size: var(--text-sm);
+  font-size: 13px;
   color: var(--color-muted);
-  line-height: 1.7;
-  max-width: 340px;
+  line-height: 1.65;
+  max-width: 320px;
 }
 
 .resetBtn {
-  padding: 10px 22px;
+  padding: 9px 20px;
   background: transparent;
   border: 1.5px solid var(--color-border);
   border-radius: var(--radius-pill);
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 500;
   color: var(--color-muted);
   cursor: pointer;
   font-family: var(--font-sans);
   transition: border-color var(--transition-fast), color var(--transition-fast);
-  margin-top: var(--space-2);
+  margin-top: 4px;
 }
 
 .resetBtn:hover {
@@ -325,11 +324,12 @@
 
 /* ── Responsive ── */
 @media (max-width: 1024px) {
-  .inner { grid-template-columns: 1fr; padding: var(--space-8); }
+  .inner { grid-template-columns: 1fr; padding: 28px 24px; gap: 28px; }
   .formRow { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 640px) {
-  .inner { padding: var(--space-6); border-radius: var(--radius-card); }
-  .right { padding: var(--space-5); }
+  .inner { padding: 20px 16px; border-radius: var(--radius-card); }
+  .right { padding: 18px 16px; }
+  .input, .select, .textarea { font-size: 16px; }
 }
